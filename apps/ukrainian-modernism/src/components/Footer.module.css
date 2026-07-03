@@ -1,0 +1,262 @@
+.footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: #fbfbfb;
+    padding: 2rem 0;
+    /* Reduced padding further for compactness */
+    margin-top: 3rem;
+    /* Reduced top margin significantly */
+    font-size: 0.95rem;
+    color: var(--color-ink);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2.5rem;
+}
+
+/* LEFT COLUMN */
+.leftCol {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    flex: 1;
+}
+
+.contactRow {
+    display: flex;
+    align-items: center;
+    /* Align items horizontally */
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+/* Matching style for label to other links */
+.contactLabel {
+    font-weight: 500;
+    /* Regular weight, not bold */
+    margin: 0;
+    font-size: 1rem;
+    font-family: inherit;
+    /* Inherit sans/serif from parent, consistent */
+    color: var(--color-ink);
+}
+
+.mailLink {
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: rgba(0, 0, 0, 0.2);
+    text-underline-offset: 4px;
+    color: var(--color-ink);
+}
+
+.mailLink:hover {
+    text-decoration-color: var(--color-ink);
+}
+
+.socials {
+    display: flex;
+    gap: 1rem;
+    margin-left: 1rem;
+}
+
+.socialLink {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--color-ink);
+    text-decoration: none;
+}
+
+.socialLink:hover {
+    text-decoration: underline;
+}
+
+/* Legal Row */
+.legalRow {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    font-size: 0.9rem;
+}
+
+.copyright {
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--color-ink);
+}
+
+.legalLinks {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.legalLink {
+    color: var(--color-ink-light);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.legalLink:hover {
+    color: var(--color-ink);
+    text-decoration: underline;
+}
+
+.stoicBanner {
+    margin-top: 0.75rem;
+    display: block;
+    padding: 0.95rem 1.1rem;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    background: white;
+    text-decoration: none;
+    color: var(--color-ink);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.06);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.stoicBanner:hover {
+    transform: translateY(-1px);
+    border-color: rgba(0, 0, 0, 0.18);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.10);
+}
+
+.stoicBannerTitle {
+    font-size: 1.05rem;
+    font-weight: 750;
+    line-height: 1.2;
+}
+
+.stoicBannerSubtitle {
+    margin-top: 0.25rem;
+    font-size: 0.9rem;
+    line-height: 1.3;
+    color: var(--color-ink-light);
+}
+
+/* deploy marker removed */
+
+/* MIDDLE COLUMN: Stoic banner */
+.middleCol {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+/* RIGHT COLUMN: Arkushi */
+.rightCol {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+}
+
+.arkushiBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.arkushiLogoLink {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    text-decoration: none;
+    color: var(--color-ink);
+}
+
+.arkushiLogo {
+    object-fit: contain;
+}
+
+.arkushiText {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.arkushiTitle {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.arkushiSubtitle {
+    font-size: 0.85rem;
+    color: var(--color-ink-light);
+    max-width: 200px;
+    line-height: 1.3;
+}
+
+.badges {
+    display: flex;
+    gap: 0.8rem;
+    margin-left: 64px;
+}
+
+.badgeImg {
+    height: 32px;
+    /* Slightly smaller for compactness */
+    width: auto;
+    border-radius: 6px;
+    transition: opacity 0.2s;
+    display: block;
+}
+
+.badgeImg:hover {
+    opacity: 0.8;
+}
+
+@media (max-width: 800px) {
+    .grid {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .middleCol {
+        justify-content: flex-start;
+    }
+
+    .contactRow {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .socials {
+        margin-left: 0;
+    }
+
+    .legalRow {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .rightCol {
+        justify-content: flex-start;
+    }
+
+    .arkushiBlock {
+        align-items: flex-start;
+    }
+
+    .badges {
+        margin-left: 0;
+    }
+
+    .footer {
+        margin-top: 3rem;
+    }
+}

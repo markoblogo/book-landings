@@ -1,0 +1,70 @@
+# Book Landings
+
+`book-landings` is a monorepo for content-driven editorial and book landing pages. Each site is a separate app so it can keep its own routes, visual identity, assets, legal pages, SEO host config, and deployment target.
+
+The shared packages provide reusable constructor pieces without forcing one design system across every landing.
+
+## Apps
+
+| App | Path | Live URL | Locales | Key features | Dev command | Status |
+| --- | --- | --- | --- | --- | --- | --- |
+| Ukrainian Modernism | `apps/ukrainian-modernism` | `https://ukrmodernism.abvx.xyz` | `fr`, `uk` | book catalog, singular book detail routes, localized legal/privacy, gift PDF/EPUB, demo video, cultural editorial variant | `npm run dev:ukrainian-modernism` | migrated |
+| Toki Free Kit | `apps/toki-free-kit` | `https://toki-free.abvx.xyz` | `en`, `tp` | free PDFs, book detail routes, localized legal/privacy, sitelen layers, runtime verification docs | `npm run dev:toki-free-kit` | migrated |
+| Dao Toki | `apps/dao-toki` | `https://dao-toki.abvx.xyz` | `en`, `tp` | Chinese Wisdom catalog, book detail routes, related projects, localized legal/privacy, sitelen layers | `npm run dev:dao-toki` | migrated |
+| Stoic Wisdom Series | `apps/stoic-wisdom-series` | `https://stoic.abvx.xyz` | `en`, `tp` | Stoic catalog, book detail routes, reader kit flow, localized legal/privacy, sitelen layers | `npm run dev:stoic-wisdom-series` | migrated |
+| Agro / AMI Library | `apps/agro-library` | TBD | TBD | future editorial landing after constructor hardening | `npm run dev:agro-library` | placeholder only |
+
+## Shared Packages
+
+| Package | Purpose |
+| --- | --- |
+| `packages/landing-core` | Site config, locale config, book/link/asset/legal types, feature flags, common URL/locale helpers. |
+| `packages/landing-content` | Dictionary lookup, locale fallback, and book dataset helpers. |
+| `packages/landing-ui` | Generic minimally styled editorial primitives for new apps when visual parity allows reuse. |
+| `packages/landing-seo` | Canonical URL, OpenGraph, metadata, hreflang, and JSON-LD helpers. |
+| `packages/landing-sitelen` | Optional `sitelen-layer-plugin` profile helpers for toki pona apps only. |
+
+## Root Commands
+
+```bash
+npm install
+npm run lint
+npm run typecheck
+npm run build
+npm run check:assets
+```
+
+Targeted app commands:
+
+```bash
+npm run build --workspace @book-landings/ukrainian-modernism
+npm run build --workspace @book-landings/toki-free-kit
+npm run build --workspace @book-landings/dao-toki
+npm run build --workspace @book-landings/stoic-wisdom-series
+```
+
+## Route Summary
+
+| App | Important routes |
+| --- | --- |
+| Ukrainian Modernism | `/` -> `/fr`, `/fr`, `/uk`, `/{fr,uk}/book/[id]`, `/{fr,uk}/gift`, `/{fr,uk}/legal`, `/{fr,uk}/privacy` |
+| Toki Free Kit | `/` -> `/en`, `/kit` -> `/en/kit`, `/{en,tp}`, `/{en,tp}/kit`, `/{en,tp}/books/[id]`, legal/privacy |
+| Dao Toki | `/` -> `/en`, `/kit` -> `/en/kit`, `/{en,tp}`, `/{en,tp}/kit`, `/{en,tp}/books/[id]`, legal/privacy |
+| Stoic Wisdom Series | `/` -> `/en`, `/kit` -> `/en/kit`, `/{en,tp}`, `/{en,tp}/kit`, `/{en,tp}/books/[id]`, legal/privacy |
+
+## Deployment Notes
+
+- Keep each app independently deployable. Do not collapse migrated sites into a single dynamic `[site]` app.
+- Configure production domains per app from `src/site.config.ts`.
+- Ukrainian Modernism was documented on Railway with Cloudflare DNS.
+- Toki Free Kit, Dao Toki, and Stoic Wisdom Series were documented on Vercel.
+- Keep old deployments live until the matching monorepo app is deployed, verified, and the domain cutover is complete.
+
+## Documentation
+
+- [Migration audit](docs/MIGRATION_AUDIT.md)
+- [Migration plan](docs/MIGRATION_PLAN.md)
+- [Constructor guide](docs/CONSTRUCTOR_GUIDE.md)
+- [Feature flags and capabilities](docs/FEATURES.md)
+- [Parity matrix](docs/PARITY_MATRIX.md)
+- [Old repository transition plan](docs/OLD_REPOS_TRANSITION.md)

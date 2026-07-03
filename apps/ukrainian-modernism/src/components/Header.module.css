@@ -1,0 +1,42 @@
+.header {
+    position: absolute;
+    /* Integrate with Hero */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+    padding: 1.5rem 0;
+    background: transparent;
+    /* No background strip */
+}
+
+.inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.spacer {
+    /* Keeps the language switch on the right */
+    flex-grow: 1;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.faqLink {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    color: var(--color-ink-light);
+    opacity: 0.8;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: opacity 0.2s;
+}
+
+.faqLink:hover {
+    opacity: 1;
+}

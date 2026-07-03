@@ -1,0 +1,27 @@
+import { getDictionary } from '@/get-dictionary';
+import Link from 'next/link';
+
+export default async function PrivacyPage({ params }: { params: Promise<{ lang: 'en' | 'tp' }> }) {
+  const { lang } = await params;
+  const safeLang = lang === 'tp' ? 'tp' : 'en';
+  const dict = await getDictionary(safeLang);
+  const body = Array.isArray(dict?.privacy?.body) ? dict.privacy.body : [];
+
+  return (
+    <main className="container" style={{ padding: '6rem 1.5rem 4rem', minHeight: '60vh', maxWidth: '800px', margin: '0 auto' }}>
+      <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: '2rem', marginBottom: '2rem' }}>{dict.privacy.title}</h1>
+
+      <div style={{ fontSize: '1rem', lineHeight: '1.7', color: 'var(--color-ink)' }}>
+        {body.map((paragraph: string, index: number) => (
+          <p key={index} style={{ marginTop: index === 0 ? 0 : '1.25rem' }}>{paragraph}</p>
+        ))}
+      </div>
+
+      <div style={{ marginTop: '4rem', borderTop: '1px solid rgba(0,0,0,0.1)', paddingTop: '2rem' }}>
+        <Link href={`/${safeLang}`} style={{ textDecoration: 'none', fontWeight: 'bold' }}>
+          {dict.privacy.back}
+        </Link>
+      </div>
+    </main>
+  );
+}

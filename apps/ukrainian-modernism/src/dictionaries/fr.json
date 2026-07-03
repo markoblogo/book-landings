@@ -1,0 +1,192 @@
+{
+  "meta": {
+    "title": "Modernisme ukrainien — romans ukrainiens en français",
+    "description": "Une collection de romans ukrainiens traduits en français: modernisme des années 1920, préfaces et notes. Kindle + papier, plus un texte gratuit."
+  },
+  "header": {
+    "lang": "FR / UA"
+  },
+  "hero": {
+    "title": "Modernisme Ukrainien",
+    "subtitle": "Littérature ukrainienne en français : romans ukrainiens traduits des années 1920. Une avant-garde urbaine et expérimentale enfin accessible au lecteur français.",
+    "cta_collection": "Voir la collection",
+    "cta_gift": "Bientôt disponible",
+    "buy_kindle": "Format Kindle",
+    "buy_print": "Édition papier",
+    "download_pdf": "Télécharger PDF",
+    "download_epub": "Télécharger EPUB",
+    "gift_badge": "Cadeau",
+    "learn_more": "En savoir plus",
+    "watch_teaser": "Voir le teaser vidéo"
+  },
+  "why": {
+    "title": "Pourquoi cette collection ?",
+    "cards": {
+      "history": {
+        "title": "Une histoire effacée",
+        "text": "Dans les années 1920, l'Ukraine connaît une explosion culturelle sans précédent. Les écrivains s'emparent de la ville, du cinéma, de la psychologie. Staline y mettra fin par la terreur : c'est la « Renaissance fusillée ». Ces textes ont survécu par miracle."
+      },
+      "style": {
+        "title": "Une esthétique moderne",
+        "text": "Loin du réalisme socialiste, cette prose est expérimentale, ironique, urbaine. Elle dialogue avec Dos Passos, Joyce ou le surréalisme. C'est une littérature de l'inquiétude et de la vitesse, étonnamment proche de notre sensibilité actuelle."
+      },
+      "europe": {
+        "title": "Un ancrage européen",
+        "text": "Kharkiv et Kiev ne regardaient pas vers Moscou, mais vers Berlin et Paris. Lire ces auteurs, c'est redécouvrir une pièce manquante du puzzle moderniste européen, entre le futurisme italien et l'existentialisme français."
+      },
+      "discovery": {
+        "title": "Une découverte inédite",
+        "text": "La plupart de ces œuvres n'ont jamais été traduites en français. Cette collection est un travail de défricheur : offrir au lecteur francophone l'accès direct à des chefs-d'œuvre restés trop longtemps dans l'ombre."
+      }
+    }
+  },
+  "collection": {
+    "title": "La Collection",
+    "buy_button": "Acheter sur Amazon",
+    "learn_more": "En savoir plus",
+    "khvylovy-sanatorium": {
+      "title": "La zone du sanatorium",
+      "author": "Mykola Khvylovy",
+      "shortDesc": "L'espace est clos, la morale est fissurée, et la langue se brise pour dire l'indicible. Khvylovy, c'est la révolution vue de l'intérieur, sans slogans.",
+      "longDesc": "Une constellation de récits où l'individu se débat avec l'idée et l'Histoire. On y trouve une prose musicale, fragmentée, et un regard impitoyable sur la vulgarité institutionnelle. Nouvelle traduction avec préface et notes."
+    },
+    "ianovski-maitre-du-navire": {
+      "title": "Le Maître du navire",
+      "author": "Iouri Ianovski",
+      "shortDesc": "Ianovski écrit comme la caméra bouge. Un navire devient le symbole d'une utopie créatrice dans ce texte lumineux, risqué et profondément européen.",
+      "longDesc": "Ianovski a inventé le roman-cinéma : libre, solaire, loin des clichés d'un Orient « sombre ». Ici, Odessa est la fabrique du futur : la mer comme méthode, l'amitié comme moteur, l'art comme promesse. Traduction intégrale accompagnée d'une préface et de notes."
+    },
+    "johansen-leonardo": {
+      "title": "Le Voyage du savant docteur Leonardo",
+      "author": "Maïk Johansen",
+      "shortDesc": "Johansen joue avec le roman comme avec un billard : un coup précis, et le genre éclate en mille morceaux. Une parodie de voyage savant délicieusement ironique.",
+      "longDesc": "Première édition française d'un auteur clé de la Renaissance fusillée. Johansen livre une prose joueuse et ironique, consciente de ses propres mécanismes — comme si Queneau ou Perec avaient pris le train pour Kharkiv en 1928. Roman, poétique, reportage : une anthologie qui prouve que le modernisme ukrainien est une avant-garde européenne."
+    },
+    "pidmohylny-la-ville": {
+      "title": "La Ville",
+      "author": "Valerian Pidmohylny",
+      "shortDesc": "Un jeune provincial vient « devenir quelqu'un » à Kiev. La ville commence alors son travail sur lui : dur, séducteur, inéluctable. Un grand roman urbain.",
+      "longDesc": "Pidmohylny écrit la modernité urbaine sans folklore, with une finesse psychologique qui parlera aux lecteurs du réalisme. Kiev n'est pas un décor, c'est une force. Nouvelle traduction, préface, notes et appareil critique."
+    },
+    "kosynka-gift": {
+      "title": "Dans les seigles",
+      "author": "Hryhorii Kosynka",
+      "shortDesc": "Une nouvelle saisissante sur la tragédie de la paysannerie ukrainienne, par l'un des plus grands stylistes de la Renaissance Fusillée.",
+      "longDesc": "Hryhorii Kosynka est le maître de l'impressionnisme rural. Dans 'Dans les seigles', il peint avec une précision cruelle et une compassion infinie le déchirement d'un monde qui bascule. Ce texte, offert ici dans une nouvelle traduction, est une porte d'entrée idéale vers l'univers de Kosynka."
+    }
+  },
+  "faq": {
+    "title": "FAQ",
+    "subtitle": "Réponses courtes sur la collection et les livres.",
+    "items": [
+      {
+        "q": "Qu’est-ce que “Modernisme Ukrainien” ?",
+        "a": "Une collection de traductions françaises de grands textes ukrainiens des années 1920 — une avant-garde urbaine, expérimentale, longtemps invisibilisée."
+      },
+      {
+        "q": "C’est quoi la “Renaissance fusillée” ?",
+        "a": "Un mouvement culturel ukrainien des années 1920 brisé par la terreur stalinienne. Beaucoup d’auteurs ont été arrêtés, exécutés ou réduits au silence."
+      },
+      {
+        "q": "Faut-il connaître l’histoire de l’Ukraine pour lire ces livres ?",
+        "a": "Non. Les préfaces et notes donnent juste ce qu’il faut. Les textes tiennent aussi par leur force littéraire."
+      },
+      {
+        "q": "Par quel livre commencer ?",
+        "a": "Intensité et fracture : La zone du sanatorium. Souffle et cinéma : Le Maître du navire. Jeu avec la forme : Le Voyage du savant docteur Leonardo."
+      },
+      {
+        "q": "Ce sont des romans “difficiles” ?",
+        "a": "Ils sont modernes, parfois fragmentés, mais lisibles. Pensez modernisme européen plutôt que roman classique."
+      },
+      {
+        "q": "Est-ce du surréalisme ? du Nouveau Roman ?",
+        "a": "Ce n’est pas une copie: mais on trouve des parentés (montage, ironie, fragmentation, rythme urbain) qui parlent aux lecteurs français."
+      },
+      {
+        "q": "Pourquoi ces traductions sont-elles “inédites” ?",
+        "a": "Une grande partie de ce corpus n’a jamais eu d’édition française accessible. Cette collection vise précisément ce manque."
+      },
+      {
+        "q": "Y a-t-il des préfaces et des notes ?",
+        "a": "Oui: l’objectif est d’aider sans surcharger, pour que le texte reste premier."
+      },
+      {
+        "q": "Quels formats sont disponibles ?",
+        "a": "Kindle et édition papier pour les livres. Un texte est proposé gratuitement en PDF/EPUB comme porte d’entrée."
+      },
+      {
+        "q": "Le texte gratuit, c’est quoi exactement ?",
+        "a": "Un récit court, pensé comme une introduction idéale à l’univers de la collection."
+      },
+      {
+        "q": "Ces livres sont-ils “politiques” ?",
+        "a": "Ils portent l’Histoire, mais sans slogans. Ils parlent surtout de modernité, de ville, de conscience, de langage et de pression sociale."
+      },
+      {
+        "q": "Comment soutenir le projet ?",
+        "a": "Lire, partager, offrir un livre à un ami francophone, ou relayer la page de la collection."
+      }
+    ]
+  },
+  "gift": {
+    "title": "Cadeau pour vous",
+    "status": "Livre numérique offert (PDF + ePub).",
+    "notice": "Lien direct, zéro spam.",
+    "placeholder_cta": "Télécharger"
+  },
+  "contact": {
+    "title": "Contact",
+    "text": "Écrivez-nous :",
+    "social_medium": "Medium",
+    "social_substack": "Substack"
+  },
+  "footer": {
+    "translator": "Traduction de l’ukrainien : Anton Biletskiy-Volokh (Nantes).",
+    "copyright": "© 2026 ABVX.xyz",
+    "legal_mentions": "Mentions légales",
+    "privacy_policy": "Politique de confidentialité",
+    "back_home": "← Retour à l’accueil"
+  },
+  "amazon_showcase": {
+    "title": "Disponible sur Amazon",
+    "subtitle": "Retrouvez les chefs-d'œuvre de la Renaissance Fusillée en format Kindle ou en version papier.",
+    "look_inside": "Fonction « Look Inside » : commencez votre lecture gratuitement directement sur la page Amazon.",
+    "cta": "Voir sur Amazon"
+  },
+  "partners": {
+    "title": "Partenaires",
+    "arkushi": {
+      "desc": "La plus grande bibliothèque virtuelle de poésie ukrainienne."
+    }
+  },
+  "legal": {
+    "title": "Mentions légales",
+    "editorLabel": "Éditeur :",
+    "editorValue": "Anton Biletskiy-Volokh (Nantes, France)",
+    "contactLabel": "Contact :",
+    "hostingLabel": "Hébergement :",
+    "hostingValue": "Railway (railway.app)",
+    "ipLabel": "Propriété intellectuelle :",
+    "ipValue": "L'ensemble des textes, images et éléments graphiques de ce site sont la propriété de l'éditeur ou sont utilisés avec l'autorisation de leurs titulaires. Toute reproduction sans autorisation est interdite.",
+    "liabilityLabel": "Responsabilité :",
+    "liabilityValue": "L'éditeur ne saurait être tenu responsable des dommages directs ou indirects résultant de l'utilisation de ce site. Les informations sont fournies à titre indicatif.",
+    "externalLinksLabel": "Liens externes :",
+    "externalLinksValue": "Ce site contient des liens vers des ressources externes (Amazon, Arkushi, etc.). L'éditeur n'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu.",
+    "back": "← Retour à l’accueil"
+  },
+  "privacy": {
+    "title": "Politique de confidentialité",
+    "dataLabel": "Collecte de données :",
+    "dataValue": "Ce site est statique et ne collecte aucune donnée personnelle automatiquement. Nous ne recevons votre adresse email que si vous décidez de nous envoyer un message via un lien mailto.",
+    "cookiesLabel": "Cookies et statistiques :",
+    "cookiesValue": "Ce site n'utilise pas de cookies de mesure d'audience ni de traceurs publicitaires.",
+    "thirdPartyLabel": "Services tiers :",
+    "thirdPartyValue": "Ce site peut inclure des contenus intégrés (ex : vidéos YouTube). Si vous interagissez avec ces contenus (lecture d'une vidéo), ces services tiers peuvent déposer leurs propres cookies conformément à leur politique de confidentialité.",
+    "rightsLabel": "Vos droits :",
+    "rightsValue": "Comme nous ne stockons pas vos données dans une base, aucune procédure de suppression de compte n'est nécessaire. Si vous nous avez contactés par email, vous pouvez demander la suppression de nos échanges en nous écrivant.",
+    "contactLabel": "Contact :",
+    "contactValue": "Pour toute question relative à la confidentialité : a.biletskyi@gmail.com",
+    "back": "← Retour à l’accueil"
+  }
+}

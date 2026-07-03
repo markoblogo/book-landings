@@ -1,0 +1,19 @@
+{
+  "name": "@book-landings/toki-free-kit",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@book-landings/landing-core": "0.1.0",
+    "@book-landings/landing-seo": "0.1.0",
+    "@book-landings/landing-sitelen": "0.1.0",
+    "@book-landings/landing-ui": "0.1.0",
+    "sitelen-layer-plugin": "file:vendor/sitelen-layer-plugin-0.1.1.tgz"
+  }
+}

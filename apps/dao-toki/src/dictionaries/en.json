@@ -1,0 +1,161 @@
+{
+  "lang": "en",
+  "meta": {
+    "title": "Chinese Wisdom in toki pona",
+    "description": "A bilingual book series that brings classical Chinese philosophy into a compact toki pona reading format."
+  },
+  "header": {
+    "lang": "EN / TP"
+  },
+  "hero": {
+    "title": "Chinese Wisdom in toki pona",
+    "subtitle": "A bilingual book series that brings classical Chinese philosophy into a compact toki pona reading format. Traditional Chinese, English, toki pona, and sitelen-pona-ready layouts for slow, reflective reading.",
+    "note": "Three books are live now. Two more will follow.",
+    "buy_kindle": "Kindle",
+    "buy_print": "Paperback",
+    "download_pdf": "Download PDF",
+    "download_epub": "Download EPUB",
+    "watch_teaser": "Watch teaser"
+  },
+  "why": {
+    "title": "Why this series?",
+    "cards": {
+      "history": {
+        "title": "Classical Chinese, re-read slowly",
+        "text": "These editions are built for rereading, not speed. The small vocabulary of toki pona makes structure, contrast, and recurring patterns easier to notice."
+      },
+      "style": {
+        "title": "Parallel reading across systems",
+        "text": "Traditional Chinese, English, toki pona, and sitelen-pona-ready layouts are brought into one calm reading format."
+      },
+      "europe": {
+        "title": "Philosophy through a minimal language",
+        "text": "toki pona does not try to replace the source tradition. It offers a constrained lens through which classical thought becomes newly visible."
+      },
+      "discovery": {
+        "title": "Books as visual objects",
+        "text": "These editions are designed not only for reading, but also for looking: scripts, spacing, and page rhythm matter as much as explanation."
+      }
+    }
+  },
+  "collection": {
+    "title": "Books in the series",
+    "buy_button": "View",
+    "learn_more": "Learn more",
+    "dao-de-jing": {
+      "title": "Dao De Jing",
+      "author": "Laozi",
+      "shortDesc": "A visual edition of the Dao De Jing that pairs the classical Chinese text with a toki pona translation intended for reading in sitelen pona. The book opens with an English foreword and a compact guide to how Daoist ideas are mapped into a deliberately small language, then continues as a quiet sequence of chapter-by-chapter spreads.",
+      "longDesc": "Includes: English foreword, chapter guide, classical Chinese text, toki pona, sitelen-pona-ready layout.",
+      "learnMoreParagraphs": [
+        "This edition of the Dao De Jing brings together the classical Chinese text, toki pona, and a sitelen-pona-ready visual reading line. It begins with an English foreword and a compact chapter guide that explain how major ideas are mapped into a deliberately small language.",
+        "The main body of the book is built as a calm sequence of chapter spreads: Chinese on one side, toki pona on the other. There is no heavy commentary here: the book is designed as a visual and reflective reading object, where scripts and spacing carry part of the experience.",
+        "It may especially interest readers of Daoism, toki pona learners curious about philosophical translation, and anyone drawn to calligraphy, scripts, and experimental book design."
+      ]
+    },
+    "sunzi": {
+      "title": "Sunzi: The Art of War in toki pona",
+      "author": "Sunzi",
+      "shortDesc": "A study-friendly multilingual edition of The Art of War, designed for slow comparison and repeated reading. Each passage is presented through four layers: English, Traditional Chinese, toki pona, and a sitelen-pona-ready toki pona line, with glossary notes that make visible the text's recurring structures and strategic contrasts.",
+      "longDesc": "Includes: English, Traditional Chinese, toki pona, sitelen-ready line, glossary notes.",
+      "learnMoreParagraphs": [
+        "This edition of The Art of War is part of the Chinese Wisdom in toki pona series, presenting the text through four coordinated layers: English, Traditional Chinese, toki pona, and a sitelen-pona-ready toki pona line.",
+        "It also includes glossary notes that clarify recurring concepts, strategic contrasts, and translation choices chapter by chapter. Rather than reducing Sunzi to a manual of combat, the edition highlights the deeper movement of the text: timing, concealment, terrain, momentum, and advantage.",
+        "Built for repeated reading rather than quick consumption, it is suited to readers of classical Chinese thought, toki pona learners ready for longer texts, and sitelen pona readers looking for substantial material."
+      ]
+    },
+    "mozi-universal-love": {
+      "title": "Mozi — Universal Love",
+      "author": "Mozi",
+      "shortDesc": "A free entry point into the Chinese Wisdom in toki pona series. This preview-format edition includes the full toki pona translation of Universal Love, arranged in a calm parallel-reading layout that introduces the visual and conceptual rhythm of the series.",
+      "longDesc": "Includes: full text, series preview format, parallel reading layout.",
+      "learnMoreParagraphs": [
+        "This free volume serves as an entry point into the Chinese Wisdom in toki pona series. It presents Mozi — Universal Love in a calm parallel-reading format that makes the series' visual and conceptual approach immediately clear.",
+        "As a preview-format edition, it is designed both as a complete reading experience and as an introduction to the larger publishing project. The layout supports slow rereading and close comparison, rather than fast consumption.",
+        "If the format clicks for you here, the paid volumes extend the same method into longer and more layered classical texts."
+      ]
+    }
+  },
+  "moreBooks": {
+    "title": "More books about toki pona",
+    "subtitle": "Not part of the Stoic series — other editions by the author."
+  },
+  "faq": {
+    "title": "FAQ",
+    "subtitle": "Short answers about the series, formats, and reading method.",
+    "items": [
+      {
+        "q": "What is this series?",
+        "a": "A bilingual publishing project that reimagines classical Chinese texts through toki pona and parallel reading layouts."
+      },
+      {
+        "q": "Do I need to know toki pona already?",
+        "a": "Not necessarily. English and source-text layers help orientation, while the repeated structure makes the toki pona easier to follow."
+      },
+      {
+        "q": "Why use toki pona for philosophy?",
+        "a": "Because its small vocabulary makes many structural choices visible. It does not simplify the originals completely, but it changes how you notice them."
+      },
+      {
+        "q": "Why is sitelen pona included?",
+        "a": "To make the toki pona line readable as a visual script and to slow the reading experience in a productive way."
+      },
+      {
+        "q": "Are all books free?",
+        "a": "No. The series includes paid books and one free preview-format volume: Mozi — Universal Love."
+      },
+      {
+        "q": "Will more books be added?",
+        "a": "Yes. This landing is built as a growing series page, and more titles will appear as they are published."
+      },
+      {
+        "q": "Are these translations literal?",
+        "a": "They are careful literary and interpretive editions shaped by the limits and possibilities of toki pona."
+      },
+      {
+        "q": "Where can I follow updates?",
+        "a": "Through the project links in the footer and future releases on this site."
+      }
+    ]
+  },
+  "legal": {
+    "title": "Legal notice",
+    "editorLabel": "Editor:",
+    "editorValue": "Anton Biletskyi-Volokh (France)",
+    "contactLabel": "Contact:",
+    "hostingLabel": "Hosting:",
+    "hostingValue": "Standard web hosting (Vercel)",
+    "ipLabel": "Intellectual property:",
+    "ipValue": "All texts and visuals are owned by the publisher or used with permission.",
+    "liabilityLabel": "Liability:",
+    "liabilityValue": "Information provided as-is.",
+    "externalLinksLabel": "External links:",
+    "externalLinksValue": "Links to third-party websites (Amazon, YouTube, etc.).",
+    "back": "← Back"
+  },
+  "privacy": {
+    "title": "Privacy policy",
+    "dataLabel": "Data:",
+    "dataValue": "This website does not collect personal data by default.",
+    "cookiesLabel": "Cookies:",
+    "cookiesValue": "No analytics cookies. Embedded content (e.g. YouTube) may set cookies when played.",
+    "thirdPartyLabel": "Third-party services:",
+    "thirdPartyValue": "YouTube, Amazon, etc.",
+    "rightsLabel": "Your rights:",
+    "rightsValue": "Contact us for any privacy questions.",
+    "contactLabel": "Contact:",
+    "contactValue": "a.biletskyi@gmail.com",
+    "back": "← Back"
+  },
+  "contact": {
+    "text": "Contact",
+    "social_medium": "Medium",
+    "social_substack": "Substack"
+  },
+  "footer": {
+    "copyright": "© 2026 ABVX.xyz",
+    "legal_mentions": "Legal",
+    "privacy_policy": "Privacy",
+    "back_home": "← Back to home"
+  }
+}

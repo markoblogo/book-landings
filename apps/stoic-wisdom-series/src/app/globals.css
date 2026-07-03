@@ -1,0 +1,263 @@
+@import 'sitelen-layer-plugin/styles.css';
+@import 'sitelen-layer-plugin/sitelen-pona-font.css';
+
+:root {
+  --font-sans: 'Outfit', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+
+  /* Palette */
+  --color-paper: #fbfbfb;
+  /* Near-white modern background */
+  --color-paper-dark: #f0f0f0;
+  --color-ink: #1a1a1a;
+  /* High contrast text */
+  --color-ink-light: #555555;
+  --color-accent: #d4a345;
+  --color-accent-hover: #b88a32;
+  --color-blue-deep: #2c4a6e;
+
+  --max-width: 1200px;
+  --header-height: 80px;
+  --glow-accent: rgba(34, 197, 94, 0.35);
+  --glow-accent-strong: rgba(34, 197, 94, 0.55);
+  --glow-ring: 0 0 0 4px var(--glow-accent);
+  --glow-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(34, 197, 94, 0.18), 0 0 28px var(--glow-accent);
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* sitelen-layer-plugin integration */
+
+main.stoic-sitelen-pona {
+  line-height: 1.38;
+}
+
+main.stoic-sitelen-pona,
+main.stoic-sitelen-pona * {
+  font-family: 'sitelen seli kiwen asuki', 'nasin nanpa', sans-serif !important;
+  font-variant-ligatures: common-ligatures discretionary-ligatures !important;
+  font-feature-settings: "liga" 1, "dlig" 1, "calt" 1 !important;
+  font-variant-caps: normal !important;
+  letter-spacing: normal !important;
+  text-rendering: optimizeLegibility;
+  text-transform: none !important;
+  white-space: normal;
+}
+
+main.stoic-sitelen-pona [data-locale-switcher],
+main.stoic-sitelen-pona [data-locale-switcher] *,
+main.stoic-sitelen-pona [data-sitelen-layer-ui],
+main.stoic-sitelen-pona [data-sitelen-layer-ui] *,
+main.stoic-sitelen-pona [data-sitelen-layer-ignore],
+main.stoic-sitelen-pona [data-sitelen-layer-ignore] * {
+  font-family: var(--font-sans), sans-serif !important;
+  font-variant-ligatures: normal !important;
+  font-feature-settings: normal !important;
+  letter-spacing: normal !important;
+  text-rendering: auto;
+  text-transform: none !important;
+}
+
+#sitelen-layer-toggle-mount .slp-toggle {
+  position: static;
+  right: auto;
+  bottom: auto;
+  z-index: 1;
+  gap: 4px;
+  padding: 2px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  backdrop-filter: none;
+  font-family: var(--font-sans), sans-serif !important;
+  font-variant-ligatures: normal !important;
+  font-feature-settings: normal !important;
+}
+
+#sitelen-layer-toggle-mount .slp-toggle__btn {
+  font-family: var(--font-sans), sans-serif !important;
+  font-variant-ligatures: normal !important;
+  font-feature-settings: normal !important;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  color: var(--color-ink-light);
+}
+
+#sitelen-layer-toggle-mount .slp-toggle.slp-toggle--size-lg .slp-toggle__btn {
+  min-width: 42px;
+  height: 36px;
+  padding: 0 12px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+#sitelen-layer-toggle-mount .slp-toggle__btn:hover {
+  border-color: rgba(17, 24, 39, 0.16);
+  color: var(--color-ink);
+}
+
+#sitelen-layer-toggle-mount .slp-toggle__btn.is-active {
+  background: rgba(17, 24, 39, 0.08);
+  color: var(--color-ink);
+}
+
+#sitelen-layer-toggle-mount .slp-toggle__btn.is-disabled,
+#sitelen-layer-toggle-mount .slp-toggle__btn:disabled {
+  opacity: 0.35;
+}
+
+.slp-layer--sitelen-emoji [data-gift-badge-ring] {
+  position: relative;
+  overflow: hidden;
+}
+
+.slp-layer--sitelen-emoji [data-gift-badge-ring]::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 78%;
+  height: 78%;
+  border-radius: 50%;
+  background: rgba(255, 250, 246, 0.94);
+  box-shadow: 0 2px 5px rgba(88, 18, 26, 0.18);
+  transform: translate(-50%, -50%);
+}
+
+.slp-layer--sitelen-emoji [data-gift-badge-text] {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 68%;
+  color: #141414;
+  font-size: 0.88em;
+  line-height: 1.02;
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* Utilities */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  /* Slightly smaller padding */
+  background: var(--color-ink);
+  color: var(--color-paper);
+  border: 1px solid var(--color-ink);
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: transform 160ms var(--ease-out), box-shadow 160ms var(--ease-out), border-color 160ms var(--ease-out), background-color 160ms var(--ease-out), color 160ms var(--ease-out);
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.btn:hover {
+  background: transparent;
+  color: var(--color-ink);
+}
+
+.btn-accent {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+}
+
+.btn-accent:hover {
+  background: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+}
+
+.ux-hover-card,
+.ux-hover-btn,
+.ux-hover-sticker {
+  transition: transform 160ms var(--ease-out), box-shadow 160ms var(--ease-out), border-color 160ms var(--ease-out), filter 160ms var(--ease-out);
+}
+
+.ux-hover-card,
+.ux-hover-btn {
+  will-change: transform;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .ux-hover-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--glow-shadow);
+    border-color: rgba(34, 197, 94, 0.28) !important;
+  }
+
+  .ux-hover-btn:hover {
+    transform: translateY(-1px) scale(1.01);
+    box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.2), 0 0 20px var(--glow-accent);
+    border-color: rgba(34, 197, 94, 0.35) !important;
+  }
+
+  .ux-hover-sticker:hover {
+    transform: translateY(-1px) rotate(1deg);
+    filter: drop-shadow(0 0 10px var(--glow-accent-strong));
+  }
+}
+
+.ux-focus-ring:focus-visible {
+  outline: none;
+  box-shadow: var(--glow-ring);
+  border-color: rgba(34, 197, 94, 0.35) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ux-hover-card,
+  .ux-hover-btn,
+  .ux-hover-sticker {
+    transition: none !important;
+    transform: none !important;
+  }
+}

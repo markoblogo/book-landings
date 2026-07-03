@@ -1,0 +1,47 @@
+{
+  "name": "book-landings",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build:packages && npm run build:apps",
+    "build:packages": "npm run build --workspace @book-landings/landing-core && npm run build --workspace @book-landings/landing-content && npm run build --workspace @book-landings/landing-seo && npm run build --workspace @book-landings/landing-sitelen && npm run build --workspace @book-landings/landing-ui",
+    "build:apps": "npm run build --workspace @book-landings/ukrainian-modernism && npm run build --workspace @book-landings/toki-free-kit && npm run build --workspace @book-landings/dao-toki && npm run build --workspace @book-landings/stoic-wisdom-series && npm run build --workspace @book-landings/agro-library",
+    "lint": "eslint . --max-warnings=0",
+    "test:parity": "npm run build:packages && playwright test",
+    "test:parity:headed": "npm run build:packages && playwright test --headed",
+    "typecheck": "npm run build:packages && npm run typecheck:apps",
+    "typecheck:apps": "npm run typecheck --workspace @book-landings/ukrainian-modernism && npm run typecheck --workspace @book-landings/toki-free-kit && npm run typecheck --workspace @book-landings/dao-toki && npm run typecheck --workspace @book-landings/stoic-wisdom-series && npm run typecheck --workspace @book-landings/agro-library",
+    "check:assets": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --experimental-strip-types scripts/check-assets.ts",
+    "dev:ukrainian-modernism": "npm run build:packages && npm run dev --workspace @book-landings/ukrainian-modernism",
+    "dev:toki-free-kit": "npm run build:packages && npm run dev --workspace @book-landings/toki-free-kit",
+    "dev:dao-toki": "npm run build:packages && npm run dev --workspace @book-landings/dao-toki",
+    "dev:stoic-wisdom-series": "npm run build:packages && npm run dev --workspace @book-landings/stoic-wisdom-series",
+    "dev:agro-library": "npm run build:packages && npm run dev --workspace @book-landings/agro-library",
+    "start:ukrainian-modernism": "npm run start --workspace @book-landings/ukrainian-modernism",
+    "start:toki-free-kit": "npm run start --workspace @book-landings/toki-free-kit",
+    "start:dao-toki": "npm run start --workspace @book-landings/dao-toki",
+    "start:stoic-wisdom-series": "npm run start --workspace @book-landings/stoic-wisdom-series"
+  },
+  "dependencies": {
+    "next": "16.2.10",
+    "react": "19.2.3",
+    "react-dom": "19.2.3"
+  },
+  "overrides": {
+    "postcss": "8.5.10"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^20.19.25",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.2",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.50.0"
+  }
+}
