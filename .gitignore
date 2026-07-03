@@ -5,6 +5,7 @@ out
 playwright-report
 test-results
 .vercel
+.railway
 .env*
 !.env.example
 *.tsbuildinfo

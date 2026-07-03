@@ -3,21 +3,25 @@ import { defineConfig, devices } from "@playwright/test";
 const appServers = [
   {
     name: "stoic-wisdom-series",
+    previewUrl: process.env.STOIC_PREVIEW_URL,
     port: 4301,
     command: "npm run dev --workspace @book-landings/stoic-wisdom-series -- --port 4301"
   },
   {
     name: "toki-free-kit",
+    previewUrl: process.env.TOKI_FREE_KIT_PREVIEW_URL,
     port: 4302,
     command: "npm run dev --workspace @book-landings/toki-free-kit -- --port 4302"
   },
   {
     name: "dao-toki",
+    previewUrl: process.env.DAO_TOKI_PREVIEW_URL,
     port: 4303,
     command: "npm run dev --workspace @book-landings/dao-toki -- --port 4303"
   },
   {
     name: "ukrainian-modernism",
+    previewUrl: process.env.UKRAINIAN_MODERNISM_PREVIEW_URL,
     port: 4304,
     command: "npm run dev --workspace @book-landings/ukrainian-modernism -- --port 4304"
   },
@@ -35,22 +39,30 @@ export default defineConfig({
   reporter: [["list"], ["html", { open: "never" }]],
   use: {
     ...devices["Desktop Chrome"],
-    trace: "retain-on-failure"
+    trace: "retain-on-failure",
+    extraHTTPHeaders: process.env.VERCEL_PROTECTION_BYPASS
+      ? {
+          "x-vercel-protection-bypass": process.env.VERCEL_PROTECTION_BYPASS,
+          "x-vercel-set-bypass-cookie": "true"
+        }
+      : undefined
   },
-  webServer: appServers.map((server) => ({
-    command: server.command,
-    url: `http://127.0.0.1:${server.port}`,
-    reuseExistingServer: !process.env.CI,
-    timeout: 120_000,
-    env: {
-      NEXT_TELEMETRY_DISABLED: "1"
-    }
-  })),
+  webServer: appServers
+    .filter((server) => !server.previewUrl)
+    .map((server) => ({
+      command: server.command,
+      url: `http://127.0.0.1:${server.port}`,
+      reuseExistingServer: !process.env.CI,
+      timeout: 120_000,
+      env: {
+        NEXT_TELEMETRY_DISABLED: "1"
+      }
+    })),
   projects: appServers.map((server) => ({
     name: server.name,
     testMatch: new RegExp(`${server.name}\\.spec\\.ts$`),
     use: {
-      baseURL: `http://127.0.0.1:${server.port}`
+      baseURL: server.previewUrl ?? `http://127.0.0.1:${server.port}`
     }
   }))
 });
