@@ -4,6 +4,7 @@ dist
 out
 playwright-report
 test-results
+.vercel
 .env*
 !.env.example
 *.tsbuildinfo

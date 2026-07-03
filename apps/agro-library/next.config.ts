@@ -6,6 +6,7 @@ const repoRoot = join(dirname(fileURLToPath(import.meta.url)), "../..");
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: ["127.0.0.1"],
+  outputFileTracingRoot: repoRoot,
   turbopack: {
     root: repoRoot
   },
