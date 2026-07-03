@@ -8,49 +8,45 @@ Purpose: validate monorepo preview deployments before production domain cutover.
 
 | App | Platform | App path | Preview URL | Deployment | Build status | Browser check | Cutover status |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Stoic Wisdom Series | Vercel | `apps/stoic-wisdom-series` | https://stoic-wisdom-series-5spxxcjab-abvcreative.vercel.app | `dpl_4izVHEXRqjHgWpJ8s7zxgM9ckGPH` | Ready | Failed: proxy route runtime 500 | Not approved |
-| Toki Free Kit | Vercel | `apps/toki-free-kit` | https://toki-free-nuob5mu5s-abvcreative.vercel.app | `dpl_3w9nUWYbUHFYQUcVRxjiYtsyETeV` | Ready | Failed: proxy route runtime 500 | Not approved |
-| Dao Toki | Vercel | `apps/dao-toki` | https://dao-toki-ll5yo8ez3-abvcreative.vercel.app | `dpl_Gzy8WUwedXrGC6ZS1P1n1nk6HMNP` | Ready | Failed: proxy route runtime 500 | Not approved |
-| Ukrainian Modernism | Railway | `apps/ukrainian-modernism` | https://ukrainian-modernism-monorepo-preview.up.railway.app | `9f34da74-1858-4df4-9ed8-9b62cceb7d59` | Success | Passed smoke and parity checks | Preview approved, pending owner visual review |
+| Stoic Wisdom Series | Vercel | `apps/stoic-wisdom-series` | `https://stoic-wisdom-series-6ystmwep3-abvcreative.vercel.app` | `dpl_4p8HwQc9srbqXSohKYGnirXjj2b1` | Ready | Passed smoke and Playwright preview parity | Preview approved |
+| Toki Free Kit | Vercel | `apps/toki-free-kit` | `https://toki-free-gmi3n0j9f-abvcreative.vercel.app` | `dpl_4yZXwK3CN3vQ4oop3aSGrRQEJrEM` | Ready | Passed smoke and Playwright preview parity | Preview approved |
+| Dao Toki | Vercel | `apps/dao-toki` | `https://dao-toki-f6jzqr8ok-abvcreative.vercel.app` | `dpl_CYbH8gJG7HcGXedTuzZpvp6cjSsB` | Ready | Passed smoke and Playwright preview parity | Preview approved |
+| Ukrainian Modernism | Railway | `apps/ukrainian-modernism` | `https://ukrainian-modernism-monorepo-preview.up.railway.app` | `9f34da74-1858-4df4-9ed8-9b62cceb7d59` | Success | Passed smoke and Playwright preview parity | Preview approved |
 
-## Vercel Preview Notes
+## Corrected Vercel Settings
 
-The three Vercel apps were deployed as separate projects from the monorepo app paths. The builds completed and the deployments reached the Vercel `READY` state.
+The first Vercel preview attempt used app-root/prebuilt local output. Those previews reached `READY`, but locale routes failed at runtime with `x-vercel-error: MIDDLEWARE_INVOCATION_FAILED`.
 
-The Vercel team has deployment protection enabled for non-custom deployment URLs. Automation bypass was enabled for browser checks, but the bypass secret is intentionally not stored in this repository.
+Corrected project settings for each Vercel app:
 
-After bypassing deployment protection, the preview URLs returned `500` with `x-vercel-error: MIDDLEWARE_INVOCATION_FAILED` on locale routes. Playwright parity therefore failed for the Vercel apps before route-level assertions could pass.
+| Project | Git repository | Root Directory | Install Command | Build Command | Node | Outside root files |
+| --- | --- | --- | --- | --- | --- | --- |
+| `stoic-wisdom-series` | `markoblogo/book-landings` | `apps/stoic-wisdom-series` | `cd ../.. && npm install` | `cd ../.. && npm run build:packages && npm run build --workspace @book-landings/stoic-wisdom-series` | `22.x` | Enabled |
+| `toki-free-kit` | `markoblogo/book-landings` | `apps/toki-free-kit` | `cd ../.. && npm install` | `cd ../.. && npm run build:packages && npm run build --workspace @book-landings/toki-free-kit` | `22.x` | Enabled |
+| `dao-toki` | `markoblogo/book-landings` | `apps/dao-toki` | `cd ../.. && npm install` | `cd ../.. && npm run build:packages && npm run build --workspace @book-landings/dao-toki` | `22.x` | Enabled |
 
-Current assessment: the Vercel app-root/prebuilt preview flow is not yet equivalent to the intended Git-connected monorepo deployment for these proxy-backed Next.js apps. Do not cut over the production domains for Stoic Wisdom Series, Toki Free Kit, or Dao Toki until Vercel project root/build settings are corrected and parity tests pass.
+The corrected previews were deployed with remote Vercel builds, not prebuilt local output. Vercel deployment protection remains enabled for preview URLs; browser checks use an automation bypass header supplied from local environment only.
 
-Recommended next action:
+## Previous Broken Preview URLs
 
-- Confirm each Vercel project is connected to `markoblogo/book-landings`.
-- Set Root Directory to the matching `apps/<app-name>` path in the Vercel dashboard.
-- Keep the install/build commands workspace-compatible.
-- Redeploy from Git rather than relying on local app-root prebuilt output.
-- Re-run preview parity with deployment-protection bypass headers.
+These deployments are superseded and are not approved:
 
-## Railway Preview Notes
+| App | Broken preview | Issue |
+| --- | --- | --- |
+| Stoic Wisdom Series | `https://stoic-wisdom-series-5spxxcjab-abvcreative.vercel.app` | Runtime `MIDDLEWARE_INVOCATION_FAILED` |
+| Toki Free Kit | `https://toki-free-nuob5mu5s-abvcreative.vercel.app` | Runtime `MIDDLEWARE_INVOCATION_FAILED` |
+| Dao Toki | `https://dao-toki-ll5yo8ez3-abvcreative.vercel.app` | Runtime `MIDDLEWARE_INVOCATION_FAILED` |
 
-Ukrainian Modernism was deployed to a new Railway environment named `monorepo-preview` under the existing `ukrmodernism` project.
+## Smoke Results
 
-The first Railway attempt failed because the detected Node.js version was 18.20.5. Next.js requires Node.js 20.9.0 or newer. The monorepo now declares `node >=22.13.0`, and the second deployment succeeded.
+Representative route smoke checks returned `200` on the corrected previews.
 
-Railway preview checks:
-
-| Route | Result |
+| App | Checked routes |
 | --- | --- |
-| `/` | `307`, expected locale redirect |
-| `/fr` | `200` |
-| `/uk` | `200` |
-| `/fr/legal` | `200` |
-| `/uk/privacy` | `200` |
-| `/fr/book/kosynka-gift` | `200` |
-| `/robots.txt` | `200` |
-| `/sitemap.xml` | `200` |
-
-Playwright preview parity for Ukrainian Modernism passed all covered checks.
+| Stoic Wisdom Series | `/`, `/en`, `/tp`, `/en/legal`, `/en/privacy`, `/en/books/marcus-meditations`, `/robots.txt`, `/sitemap.xml` |
+| Toki Free Kit | `/`, `/en`, `/tp`, `/en/legal`, `/en/privacy`, `/en/books/readers-kit`, `/en/kit`, `/robots.txt`, `/sitemap.xml` |
+| Dao Toki | `/`, `/en`, `/tp`, `/en/legal`, `/en/privacy`, `/en/books/dao-de-jing`, `/tp/books/sunzi`, `/robots.txt`, `/sitemap.xml` |
+| Ukrainian Modernism | `/`, `/fr`, `/uk`, `/fr/legal`, `/uk/privacy`, `/fr/book/kosynka-gift`, `/robots.txt`, `/sitemap.xml` |
 
 ## Preview Parity Status
 
@@ -62,19 +58,21 @@ Environment variables supported by `playwright.config.ts`:
 - `UKRAINIAN_MODERNISM_PREVIEW_URL`
 - `VERCEL_PROTECTION_BYPASS`
 
-Result from the preview run:
+Latest preview parity result:
 
-- Ukrainian Modernism: passed.
-- Stoic Wisdom Series: failed due Vercel runtime 500.
-- Toki Free Kit: failed due Vercel runtime 500.
-- Dao Toki: failed due Vercel runtime 500.
+```text
+13 passed
+```
+
+Covered checks include locale routes, book detail routes, legal/privacy pages, image loading, local downloads for Toki Free Kit, sitelen controls on `/tp`, no sitelen controls on `/en`, and Ukrainian Modernism without sitelen controls.
 
 ## Cutover Decision
 
 | App | Approved for production domain cutover? | Reason |
 | --- | --- | --- |
-| Stoic Wisdom Series | No | Preview build is ready, but runtime routes fail on Vercel. |
-| Toki Free Kit | No | Preview build is ready, but runtime routes fail on Vercel. |
-| Dao Toki | No | Preview build is ready, but runtime routes fail on Vercel. |
-| Ukrainian Modernism | Not yet final; preview approved | Railway preview works. Complete owner visual, mobile, OG, and DNS review before switching production. |
+| Stoic Wisdom Series | Yes, after owner visual review | Corrected Vercel preview builds and passes parity. |
+| Toki Free Kit | Yes, after owner visual review | Corrected Vercel preview builds and passes parity, including download checks. |
+| Dao Toki | Yes, after owner visual review | Corrected Vercel preview builds and passes parity, including book detail routes. |
+| Ukrainian Modernism | Yes, after owner visual review | Railway preview builds and passes parity. |
 
+Production cutover should still happen one app at a time with immediate production verification and rollback readiness.

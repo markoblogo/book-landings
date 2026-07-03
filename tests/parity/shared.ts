@@ -46,13 +46,20 @@ export async function expectCanonicalPath(page: Page, path: string): Promise<voi
 
 export async function expectNoBrokenImages(page: Page): Promise<void> {
   await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-  await page.waitForLoadState("networkidle");
-  const broken = await page.locator("img").evaluateAll((images) =>
-    images
-      .filter((image) => !image.complete || image.naturalWidth === 0)
-      .map((image) => image.getAttribute("src") ?? image.getAttribute("alt") ?? "unknown image")
-  );
-  expect(broken, "All rendered images should load").toEqual([]);
+  await expect
+    .poll(
+      async () =>
+        page.locator("img").evaluateAll((images) =>
+          images
+            .filter((image) => !image.complete || image.naturalWidth === 0)
+            .map((image) => image.getAttribute("src") ?? image.getAttribute("alt") ?? "unknown image")
+        ),
+      {
+        message: "All rendered images should load",
+        timeout: 10_000
+      }
+    )
+    .toEqual([]);
 }
 
 export async function expectLanguageSwitcher(page: Page, labels: string[]): Promise<Locator> {
