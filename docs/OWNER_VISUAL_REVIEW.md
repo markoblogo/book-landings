@@ -4,6 +4,8 @@ Use this checklist before switching production domains to the monorepo deploymen
 
 Production cutover remains blocked until each app has an explicit owner approval.
 
+Technical cutover completed on 2026-07-15: all four production domains now deploy from `markoblogo/book-landings` `main`, and the live Playwright parity suite passed 13 checks. This document remains the final owner gate before deleting the old repositories.
+
 ## Stoic Wisdom Series
 
 - Preview URL: `https://stoic-wisdom-series-6ystmwep3-abvcreative.vercel.app`
@@ -209,9 +211,9 @@ Approval:
 
 | App | Technical preview approved | Owner visual approved | Ready for production cutover |
 | --- | --- | --- | --- |
-| Stoic Wisdom Series | Yes | No | No |
-| Toki Free Kit | Yes | No | No |
-| Dao Toki | Yes | No | No |
-| Ukrainian Modernism | Yes | No | No |
+| Stoic Wisdom Series | Yes, live production verified | No | No |
+| Toki Free Kit | Yes, live production verified | No | No |
+| Dao Toki | Yes, live production verified | No | No |
+| Ukrainian Modernism | Yes, live production verified | No | No |
 
 Update the owner visual approval column only after the reviewer signs off above. Switch production domains one app at a time, with immediate production verification and rollback readiness.

@@ -1,6 +1,6 @@
 # Deployment Matrix
 
-This matrix prepares production deployment from the monorepo without switching domains yet. Keep old deployments live until preview parity is verified app by app.
+This matrix records the deployment contract for the monorepo. The "Pre-cutover source" column preserves migration provenance; all four production domains now run from `markoblogo/book-landings` on `main`.
 
 ## Common Commands
 
@@ -26,7 +26,7 @@ The `start:<app>` scripts assume the matching app has already been built.
 
 ## Apps
 
-| App | App path | Intended production domain | Current old deployment source | Platform target | Monorepo build command | Start command | Output directory | Static export | Next server runtime | Env vars | Sitemap URL | Smoke-test URLs |
+| App | App path | Intended production domain | Pre-cutover source | Platform target | Monorepo build command | Start command | Output directory | Static export | Next server runtime | Env vars | Sitemap URL | Smoke-test URLs |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Stoic Wisdom Series | `apps/stoic-wisdom-series` | `https://stoic.abvx.xyz` | Old `markoblogo/stoic-wisdom-series` repo, documented as Vercel | Vercel | `cd ../.. && npm run build:packages && npm run build --workspace @book-landings/stoic-wisdom-series` | `npm run start:stoic-wisdom-series` | Next.js default | No | Yes: Next App Router, proxy redirects, metadata routes | None currently required | `https://stoic.abvx.xyz/sitemap.xml` | `/`, `/en`, `/tp`, `/en/kit`, `/tp/kit`, `/en/legal`, `/en/privacy`, `/en/books/marcus-meditations`, `/tp/books/marcus-meditations`, `/robots.txt`, `/sitemap.xml` |
 | Toki Free Kit | `apps/toki-free-kit` | `https://toki-free.abvx.xyz` | Old `markoblogo/toki-free-kit` repo, documented as Vercel | Vercel | `cd ../.. && npm run build:packages && npm run build --workspace @book-landings/toki-free-kit` | `npm run start:toki-free-kit` | Next.js default | No | Yes: Next App Router, kit routes, metadata routes | None currently required | `https://toki-free.abvx.xyz/sitemap.xml` | `/`, `/en`, `/tp`, `/en/kit`, `/tp/kit`, `/en/legal`, `/en/privacy`, `/en/books/readers-kit`, `/tp/books/readers-kit`, `/robots.txt`, `/sitemap.xml`, local PDF/download links |
@@ -74,7 +74,7 @@ Recommended service settings:
 - Install Command: `npm install`
 - Build Command: `npm run build:packages && npm run build --workspace @book-landings/ukrainian-modernism`
 - Start Command: `npm run start:ukrainian-modernism`
-- Public domain: keep Cloudflare DNS pointed at the old deployment until preview verification passes.
+- Public domain: `ukrmodernism.abvx.xyz` is attached to this Railway service and deploys from `markoblogo/book-landings` `main`.
 
 Ukrainian Modernism intentionally keeps the Railway/Cloudflare deployment path documented in its app README. Do not move it to Vercel just for consistency unless the owner explicitly chooses that platform.
 
@@ -82,11 +82,8 @@ Ukrainian Modernism intentionally keeps the Railway/Cloudflare deployment path d
 
 No migrated app is currently targeted at Cloudflare Pages. These apps do not use `output: "export"` and should be treated as Next server-runtime deployments unless a Cloudflare-compatible Next adapter is introduced and verified.
 
-## Domain Cutover Rule
+## Cutover Record
 
-Do not switch DNS or production aliases until:
+The Vercel production aliases and the Railway custom domain were switched to monorepo deployments on 2026-07-15. Live Playwright parity passed for all 13 checks, and each production `robots.txt` and `sitemap.xml` returns `200`.
 
-1. The app has a green preview deployment.
-2. `npm run build`, `npm run lint`, `npm run typecheck`, `npm run check:assets`, and `npm run test:parity` pass from the monorepo.
-3. Preview smoke URLs match the current production site.
-4. Sitemap, robots, canonical URLs, OG previews, downloads, and sitelen controls are verified on the preview hostname.
+Keep the old repositories only as rollback references until the owner completes [the visual review](OWNER_VISUAL_REVIEW.md). Do not use them as deployment sources.

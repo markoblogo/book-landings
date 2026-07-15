@@ -58,7 +58,7 @@ npm run build --workspace @book-landings/stoic-wisdom-series
 - Configure production domains per app from `src/site.config.ts`.
 - Ukrainian Modernism was documented on Railway with Cloudflare DNS.
 - Toki Free Kit, Dao Toki, and Stoic Wisdom Series were documented on Vercel.
-- Keep old deployments live until the matching monorepo app is deployed, verified, and the domain cutover is complete.
+- All four production domains deploy from this monorepo. The old repositories are rollback-only pending owner visual approval before deletion.
 
 ## Documentation
 

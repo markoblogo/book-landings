@@ -1,23 +1,20 @@
 # Old Repository Transition Plan
 
-Do not delete old repositories immediately. Keep them available as archives and rollback references until production traffic is safely served from this monorepo.
+Production traffic for all four domains is now served from `markoblogo/book-landings` `main`. Keep the old repositories only as short-lived rollback references until the owner completes the visual review; they are no longer deployment sources.
 
 ## Global Steps
 
 1. Keep the old repo public or archived, not deleted.
-2. Add a README notice: migrated to `https://github.com/markoblogo/book-landings`.
-3. Keep old deployments live until the matching monorepo app is deployed and verified.
-4. Compare production screenshots, routes, assets, downloads, metadata, legal/privacy pages, and outbound links.
-5. Cut over one domain at a time.
-6. After cutover, either point deployment source to the monorepo app or add stable redirects.
-7. Keep old Git history where possible. If not possible, document migration date and source commit.
+2. Keep its README migration notice pointing to `https://github.com/markoblogo/book-landings`.
+3. Confirm owner visual approval in `docs/OWNER_VISUAL_REVIEW.md`.
+4. Delete the old repo only after that approval; no DNS or deployment source points to it.
 
 ## `ukrainian-modernism`
 
 - Recommendation: keep as public archive or mark as migrated.
 - Old live URL: `https://ukrmodernism.abvx.xyz`
 - New app: `apps/ukrainian-modernism`
-- Keep Railway/Cloudflare configuration live until monorepo deployment is verified.
+- Railway production source is `markoblogo/book-landings` `main`.
 - Preserve README demo video and cultural positioning in archive notice.
 
 ## `toki-free-kit`
@@ -25,23 +22,21 @@ Do not delete old repositories immediately. Keep them available as archives and 
 - Recommendation: keep as public archive or mark as migrated.
 - Old live URL: `https://toki-free.abvx.xyz`
 - New app: `apps/toki-free-kit`
-- Keep old deployment live until PDFs, book pages, sitelen modes, and sitemap are verified.
-- Fix or regenerate sitemap during cutover because the source audit found host mismatch risk.
+- Vercel production source is `markoblogo/book-landings` `main`; PDF, route, sitelen, and sitemap checks passed.
 
 ## `dao-toki`
 
 - Recommendation: keep as public archive or mark as migrated.
 - Old live URL: `https://dao-toki.abvx.xyz`
 - New app: `apps/dao-toki`
-- Verify `/kit` desired behavior before cutover.
-- Keep related project links stable.
+- Vercel production source is `markoblogo/book-landings` `main`; `/kit` and related project links passed live parity.
 
 ## `stoic-wisdom-series`
 
 - Recommendation: keep as public archive or mark as migrated.
 - Old live URL: `https://stoic.abvx.xyz`
 - New app: `apps/stoic-wisdom-series`
-- Verify sitelen modes, reader-kit flow, Amazon links, and related book assets before cutover.
+- Vercel production source is `markoblogo/book-landings` `main`; reader-kit routes, sitelen modes, and assets passed live parity.
 
 ## README Notice Template
 
