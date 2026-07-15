@@ -48,10 +48,10 @@ SEO/preview checks:
 
 Approval:
 
-- Owner visual review: approved / not approved
-- Notes:
-- Date:
-- Reviewer:
+- Owner visual review: approved
+- Notes: Owner approved visual review after live production parity.
+- Date: 2026-07-15
+- Reviewer: Anton Biletskyi-Volokh
 
 ## Toki Free Kit
 
@@ -99,10 +99,10 @@ SEO/preview checks:
 
 Approval:
 
-- Owner visual review: approved / not approved
-- Notes:
-- Date:
-- Reviewer:
+- Owner visual review: approved
+- Notes: Owner approved visual review after live production parity.
+- Date: 2026-07-15
+- Reviewer: Anton Biletskyi-Volokh
 
 ## Dao Toki
 
@@ -151,10 +151,10 @@ SEO/preview checks:
 
 Approval:
 
-- Owner visual review: approved / not approved
-- Notes:
-- Date:
-- Reviewer:
+- Owner visual review: approved
+- Notes: Owner approved visual review after live production parity.
+- Date: 2026-07-15
+- Reviewer: Anton Biletskyi-Volokh
 
 ## Ukrainian Modernism
 
@@ -202,18 +202,18 @@ SEO/preview checks:
 
 Approval:
 
-- Owner visual review: approved / not approved
-- Notes:
-- Date:
-- Reviewer:
+- Owner visual review: approved
+- Notes: Owner approved visual review after live production parity.
+- Date: 2026-07-15
+- Reviewer: Anton Biletskyi-Volokh
 
 ## Cutover Readiness
 
 | App | Technical preview approved | Owner visual approved | Ready for production cutover |
 | --- | --- | --- | --- |
-| Stoic Wisdom Series | Yes, live production verified | No | No |
-| Toki Free Kit | Yes, live production verified | No | No |
-| Dao Toki | Yes, live production verified | No | No |
-| Ukrainian Modernism | Yes, live production verified | No | No |
+| Stoic Wisdom Series | Yes, live production verified | Yes | Yes |
+| Toki Free Kit | Yes, live production verified | Yes | Yes |
+| Dao Toki | Yes, live production verified | Yes | Yes |
+| Ukrainian Modernism | Yes, live production verified | Yes | Yes |
 
 Update the owner visual approval column only after the reviewer signs off above. Switch production domains one app at a time, with immediate production verification and rollback readiness.
