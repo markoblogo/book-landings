@@ -12,7 +12,7 @@ The shared packages provide reusable constructor pieces without forcing one desi
 | Toki Free Kit | `apps/toki-free-kit` | `https://toki-free.abvx.xyz` | `en`, `tp` | free PDFs, book detail routes, localized legal/privacy, sitelen layers, runtime verification docs | `npm run dev:toki-free-kit` | migrated |
 | Dao Toki | `apps/dao-toki` | `https://dao-toki.abvx.xyz` | `en`, `tp` | Chinese Wisdom catalog, book detail routes, related projects, localized legal/privacy, sitelen layers | `npm run dev:dao-toki` | migrated |
 | Stoic Wisdom Series | `apps/stoic-wisdom-series` | `https://stoic.abvx.xyz` | `en`, `tp` | Stoic catalog, book detail routes, reader kit flow, localized legal/privacy, sitelen layers | `npm run dev:stoic-wisdom-series` | migrated |
-| AMI Team Publishing | `apps/agro-library` | `https://books.1d3x.com` | `en` shell; Ukrainian book cards | Free professional books for physical commodity markets, with cover-fan hero, print-led book sections, individual SEO book pages, English/Ukrainian catalog sections, downloads, FAQ, and legal/privacy pages | `npm run dev:agro-library` | catalog ready; future editions are data additions |
+| AMI Team Publishing | `apps/agro-library` | `https://books.1d3x.com` | `en` shell; Ukrainian book cards | Free professional books for physical commodity markets, with a headerless animated English cover fan, print-led book sections, individual SEO book pages, English/Ukrainian catalog sections, downloads, FAQ, and legal/privacy pages | `npm run dev:agro-library` | production matrix complete; future editions are data additions |
 
 ## Shared Packages
 
@@ -41,6 +41,7 @@ npm run build --workspace @book-landings/ukrainian-modernism
 npm run build --workspace @book-landings/toki-free-kit
 npm run build --workspace @book-landings/dao-toki
 npm run build --workspace @book-landings/stoic-wisdom-series
+npm run build --workspace @book-landings/agro-library
 ```
 
 ## Route Summary
