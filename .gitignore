@@ -4,6 +4,7 @@ dist
 out
 playwright-report
 test-results
+.playwright-cli
 .vercel
 .railway
 .env*

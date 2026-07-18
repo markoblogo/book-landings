@@ -1,20 +1,17 @@
+* {
+  box-sizing: border-box;
+}
+
 :root {
   color-scheme: light;
-  font-family: system-ui, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
   margin: 0;
-  background: #f6faf4;
-  color: #162014;
 }
 
-main {
-  margin: 0 auto;
-  max-width: 920px;
-  padding: 48px 24px;
-}
-
-a {
-  color: inherit;
+a:focus-visible {
+  outline: 3px solid #8e3d24;
+  outline-offset: 3px;
 }

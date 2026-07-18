@@ -12,7 +12,7 @@ The shared packages provide reusable constructor pieces without forcing one desi
 | Toki Free Kit | `apps/toki-free-kit` | `https://toki-free.abvx.xyz` | `en`, `tp` | free PDFs, book detail routes, localized legal/privacy, sitelen layers, runtime verification docs | `npm run dev:toki-free-kit` | migrated |
 | Dao Toki | `apps/dao-toki` | `https://dao-toki.abvx.xyz` | `en`, `tp` | Chinese Wisdom catalog, book detail routes, related projects, localized legal/privacy, sitelen layers | `npm run dev:dao-toki` | migrated |
 | Stoic Wisdom Series | `apps/stoic-wisdom-series` | `https://stoic.abvx.xyz` | `en`, `tp` | Stoic catalog, book detail routes, reader kit flow, localized legal/privacy, sitelen layers | `npm run dev:stoic-wisdom-series` | migrated |
-| AMI Team Publishing | `apps/agro-library` | `https://books.1d3x.com` | `en` shell; Ukrainian book cards | Free professional books for physical commodity markets, with English and Ukrainian catalog sections, downloads, and legal/privacy pages | `npm run dev:agro-library` | publication foundation ready; catalog pending reviewed book data |
+| AMI Team Publishing | `apps/agro-library` | `https://books.1d3x.com` | `en` shell; Ukrainian book cards | Free professional books for physical commodity markets, with product guides, professional guides, English/Ukrainian catalog sections, downloads, and legal/privacy pages | `npm run dev:agro-library` | catalog ready; future editions are data additions |
 
 ## Shared Packages
 

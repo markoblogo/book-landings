@@ -13,7 +13,9 @@ export const agroLibrarySiteConfig = {
     bookDetails: true,
     legalPages: true,
     freeDownloads: true,
-    pdfAssets: true
+    pdfAssets: true,
+    epubDownloads: true,
+    relatedProjects: true
   },
   legal: {
     contactEmail: "abv@mn7r.com",
