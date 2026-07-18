@@ -1,0 +1,9 @@
+.trigger { position: relative; display: block; width: 100%; height: 100%; padding: 0; overflow: hidden; border: 0; background: #f3f2ef; cursor: zoom-in; }
+.trigger img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease; }
+.trigger:hover img, .trigger:focus-visible img { transform: scale(1.025); }
+.trigger span { position: absolute; right: 14px; bottom: 14px; padding: 8px 10px; background: rgb(27 27 27 / .84); color: #fff; font-size: .76rem; font-weight: 700; opacity: 0; transition: opacity .2s ease; }
+.trigger:hover span, .trigger:focus-visible span { opacity: 1; }
+.lightbox { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 28px; background: rgb(0 0 0 / .76); cursor: zoom-out; }
+.lightboxContent { position: relative; width: min(1280px, 100%); cursor: default; }.lightboxContent img { display: block; width: 100%; max-height: calc(100vh - 56px); object-fit: contain; }
+.lightboxContent button { position: absolute; top: 12px; right: 12px; min-height: 38px; padding: 0 12px; border: 0; background: #fff; color: #1b1b1b; font-weight: 700; cursor: pointer; }
+@media (max-width: 680px) { .trigger span { opacity: 1; }.lightbox { padding: 14px; }.lightboxContent img { max-height: calc(100vh - 28px); } }

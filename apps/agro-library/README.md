@@ -12,6 +12,14 @@ Add reviewed books to `data/catalog.ts`.
 - Every available item must have an existing cover and hosted download URL. `upcoming` items may have a cover but must not expose placeholder downloads.
 - Downloads remain on existing hosts; do not mirror them without an explicit publishing decision.
 
+## Presentation And SEO Contract
+
+- The home page follows the shared book-landing grammar: white canvas, cover fan in the hero, `ALL FREE` badge, and print-led full-width book sections.
+- Each `available` edition uses the red `ALL FREE` badge. An `upcoming` edition uses the blue `COMMING SOON` badge and never exposes placeholder files.
+- A reviewed `print` image is required for every home-page book section. Prints open in a local lightbox; covers belong to the hero fan and book-detail pages.
+- Every item is statically published at `/books/<slug>` with canonical metadata, Open Graph data, JSON-LD, and a sitemap entry.
+- Future English editions are catalog additions: supply title/copy, cover, print, hosted formats, related project, and status.
+
 ## Publication Rules
 
 - No language switcher or localized routes.
