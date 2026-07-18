@@ -99,10 +99,8 @@ export default function Page() {
         <div className={`${styles.container} ${styles.heroInner}`}>
           <div className={styles.heroCopy}>
             <AvailabilityBadge status="available" />
-            <p className={styles.kicker}>AMI Team Publishing</p>
             <h1>Books for physical commodity markets</h1>
             <p>Free professional editions for brokers, traders, farmers, and market operators. Built around physical markets, execution, logistics, and commercial work.</p>
-            <a className={styles.heroAction} href="#english-guides">Explore the books</a>
           </div>
           <HeroFan books={fanBooks} className={styles.fan} cardClassName={styles.fanBook} activeClassName={styles.fanBookActive} />
         </div>
