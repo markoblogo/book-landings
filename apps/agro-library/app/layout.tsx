@@ -5,8 +5,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(agroLibrarySiteConfig.baseUrl),
-  title: "Agro Library",
-  description: "Placeholder for the future Agro Library landing app.",
+  title: "AMI Team Publishing | Professional books for physical commodity markets",
+  description: "Free professional editions for physical commodity brokers, traders, farmers, and market operators.",
   alternates: {
     canonical: agroLibrarySiteConfig.baseUrl
   }
