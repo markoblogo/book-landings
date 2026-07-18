@@ -91,23 +91,10 @@ function BookCollection({ books, title, subtitle, id, offset = 0 }: { books: Cat
 export default function Page() {
   const productGuides = englishBooks.filter((book) => book.group === "product-guides");
   const professionalGuides = englishBooks.filter((book) => book.group === "professional-guides");
-  const fanBooks = [...englishBooks, ...ukrainianBooks];
+  const fanBooks = englishBooks;
 
   return (
     <main className={styles.page}>
-      <header className={styles.siteHeader}>
-        <div className={`${styles.container} ${styles.headerInner}`}>
-          <a className={styles.brand} href="#top">AMI books</a>
-          <nav className={styles.navigation} aria-label="Site navigation">
-            <a href="#english-guides">English guides</a>
-            <a href="#ukrainian-books">Ukrainian books</a>
-            <a href="#about">About</a>
-            <a href="#faq">FAQ</a>
-          </nav>
-          <a className={styles.headerContact} href={`mailto:${contactEmail}`}>Contact</a>
-        </div>
-      </header>
-
       <section className={styles.hero} id="top">
         <div className={`${styles.container} ${styles.heroInner}`}>
           <div className={styles.heroCopy}>
@@ -117,7 +104,7 @@ export default function Page() {
             <p>Free professional editions for brokers, traders, farmers, and market operators. Built around physical markets, execution, logistics, and commercial work.</p>
             <a className={styles.heroAction} href="#english-guides">Explore the books</a>
           </div>
-          <HeroFan books={fanBooks} className={styles.fan} cardClassName={styles.fanBook} activeClassName={styles.fanBookActive} badgeClassName={styles.badge} />
+          <HeroFan books={fanBooks} className={styles.fan} cardClassName={styles.fanBook} activeClassName={styles.fanBookActive} />
         </div>
       </section>
 

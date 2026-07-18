@@ -3,18 +3,17 @@
 import { useState } from "react";
 import type { CatalogBook } from "../data/catalog";
 
-export function HeroFan({ books, className, cardClassName, activeClassName, badgeClassName }: {
+export function HeroFan({ books, className, cardClassName, activeClassName }: {
   books: CatalogBook[];
   className: string;
   cardClassName: string;
   activeClassName: string;
-  badgeClassName: string;
 }) {
   const [active, setActive] = useState<string | null>(null);
 
   return (
     <div className={className} aria-label="Books in the AMI Team collection">
-      {books.map((book, index) => (
+      {books.map((book) => (
         <a
           className={`${cardClassName} ${active === book.id ? activeClassName : ""}`}
           href={`#${book.slug}`}
@@ -26,7 +25,6 @@ export function HeroFan({ books, className, cardClassName, activeClassName, badg
           onBlur={() => setActive(null)}
         >
           {book.cover ? <img src={book.cover} alt="" /> : null}
-          {index === 0 ? <span className={badgeClassName}><span>ALL FREE</span></span> : null}
         </a>
       ))}
     </div>
