@@ -78,7 +78,7 @@ export const englishBooks: CatalogBook[] = [
     title: "Spot-Market Handbook",
     subtitle: "Guide to the Spot Market in Ukraine",
     summary: "An English edition connecting the Ukrainian market to global physical-market practice: logistics, basis, liquidity, respondent-based indices, spot benchmarks, market intelligence, and usable data infrastructure.",
-    cover: "/covers/spot-market-handbook-en.jpeg",
+    cover: "/covers/spot-market-handbook-en-cover.jpg",
     print: "/prints/spot-market-handbook-en.png",
     audience: "For traders, brokers, exporters, processors, analysts, investors, students, and market operators working with physical commodity flows.",
     assets: [
