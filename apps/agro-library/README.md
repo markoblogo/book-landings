@@ -16,7 +16,7 @@ Add reviewed books to `data/catalog.ts`.
 
 - This is the completed production matrix for `books.1d3x.com`. Preserve its white canvas, headerless hero, single `ALL FREE` badge beside the hero copy, English-only animated cover fan, print-led full-width book sections, FAQ, and compact footer.
 - The hero fan contains English editions only. Ukrainian editions remain in their dedicated catalog section.
-- Each `available` edition uses the red `ALL FREE` badge. An `upcoming` edition uses the blue `COMMING SOON` badge and never exposes placeholder files.
+- Hero uses a red `ALL FREE` badge. Each `available` book card uses the red `FREE` badge. An `upcoming` edition uses the blue `COMMING SOON` badge and never exposes placeholder files.
 - A reviewed `print` image is required for every home-page book section. Prints open in a local lightbox; covers belong to the hero fan and book-detail pages.
 - Every item is statically published at `/books/<slug>` with canonical metadata, Open Graph data, JSON-LD, and a sitemap entry.
 - Future editions are catalog additions, not redesigns: supply title/copy, cover, print, hosted formats, related project, group, language, and status in `data/catalog.ts`.

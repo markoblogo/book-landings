@@ -22,11 +22,11 @@ const faqItems = [
   ["Why is there Ukrainian copy on an English site?", "The site shell remains English, while Ukrainian editions retain Ukrainian titles, descriptions, and download labels for their intended readers."]
 ];
 
-function AvailabilityBadge({ status }: { status: CatalogBook["status"] }) {
+function AvailabilityBadge({ status, hero = false }: { status: CatalogBook["status"]; hero?: boolean }) {
   const upcoming = status === "upcoming";
   return (
     <span className={`${styles.badge} ${upcoming ? styles.badgeUpcoming : ""}`}>
-      <span>{upcoming ? "COMMING SOON" : "ALL FREE"}</span>
+      <span>{upcoming ? "COMMING SOON" : hero ? "ALL FREE" : "FREE"}</span>
     </span>
   );
 }
@@ -98,7 +98,7 @@ export default function Page() {
       <section className={styles.hero} id="top">
         <div className={`${styles.container} ${styles.heroInner}`}>
           <div className={styles.heroCopy}>
-            <AvailabilityBadge status="available" />
+            <AvailabilityBadge status="available" hero />
             <h1>Books for physical commodity markets</h1>
             <p>Free professional editions for brokers, traders, farmers, and market operators. Built around physical markets, execution, logistics, and commercial work.</p>
           </div>
