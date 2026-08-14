@@ -1,6 +1,7 @@
 export type CatalogSection = "english" | "ukrainian";
 export type CatalogGroup = "product-guides" | "professional-guides";
-export type AssetFormat = "PDF" | "EPUB" | "Audio" | "M4B";
+export type AssetFormat = "PDF" | "EPUB" | "Audio" | "M4B" | "Kindle" | "Paperback";
+export type DistributionKind = "free" | "amazon";
 
 export interface CatalogAsset {
   href: string;
@@ -25,6 +26,7 @@ export interface CatalogBook {
     label: string;
     href: string;
   };
+  distribution?: DistributionKind;
   note?: string;
   status: "available" | "upcoming";
 }
@@ -46,6 +48,7 @@ export const englishBooks: CatalogBook[] = [
       { href: "https://mn7r.com/mn7r-guide/mn7r-product-guide.epub", format: "EPUB", label: "Download EPUB" }
     ],
     project: { label: "MN7R.com", href: "https://mn7r.com/how-to-use" },
+    distribution: "free",
     note: "A living guide that is updated as MN7R develops. Download the latest edition periodically.",
     status: "available"
   },
@@ -67,6 +70,7 @@ export const englishBooks: CatalogBook[] = [
       { href: "https://mn7r.com/book/mn7r-agro-commodity-brokerage-en-audio.m4b", format: "M4B", label: "Download M4B" }
     ],
     project: { label: "MN7R.com", href: "https://mn7r.com/how-to-use" },
+    distribution: "free",
     status: "available"
   },
   {
@@ -86,6 +90,28 @@ export const englishBooks: CatalogBook[] = [
       { href: "https://github.com/markoblogo/index/releases/download/asset-binaries-v1/spot-market-handbook-en.epub", format: "EPUB", label: "Download EPUB" }
     ],
     project: { label: "1d3x.com", href: "https://1d3x.com/" },
+    distribution: "free",
+    status: "available"
+  },
+  {
+    id: "burgers-lipstick-underwear",
+    slug: "burgers-lipstick-underwear",
+    section: "english",
+    group: "professional-guides",
+    contentLanguage: "en",
+    title: "Burgers, Lipstick & Underwear",
+    subtitle: "What Strange Indicators Really Tell Us About the Economy",
+    summary: "A curious, skeptical tour of the strange indicators people use to understand prices, purchasing power, economic stress, risk, and technological progress.",
+    cover: "/covers/burgers-lipstick-underwear.png",
+    print: "/prints/burgers-lipstick-underwear.png",
+    audience: "For readers interested in how ordinary objects, proxy measures, and memorable benchmarks can illuminate or distort the systems they claim to explain.",
+    assets: [
+      { href: "https://www.amazon.com/dp/B0HF5DWCHB", format: "Kindle", label: "Kindle" },
+      { href: "https://www.amazon.com/dp/B0HF7SJJ7N", format: "Paperback", label: "Paperback" }
+    ],
+    project: { label: "ABVX", href: "https://abvx.xyz/books/burgers-lipstick-underwear" },
+    distribution: "amazon",
+    note: "External Amazon publication. Kindle and paperback are available through the links below.",
     status: "available"
   },
   {
@@ -102,6 +128,7 @@ export const englishBooks: CatalogBook[] = [
     audience: "For execution officers, brokers, traders, logistics and operations teams, finance and compliance professionals, managers, and students working with physical agricultural commodity contracts.",
     assets: [],
     project: { label: "MN7R.com", href: "https://mn7r.com/how-to-use" },
+    distribution: "free",
     note: "A living professional guide that will be updated with the contract-execution methodology and MN7R capabilities.",
     status: "upcoming"
   }
@@ -125,6 +152,7 @@ export const ukrainianBooks: CatalogBook[] = [
       { href: "https://mn7r.com/book/mn7r-agro-commodity-brokerage-ua.epub", format: "EPUB", label: "Завантажити EPUB" }
     ],
     project: { label: "MN7R.com", href: "https://mn7r.com/how-to-use" },
+    distribution: "free",
     status: "available"
   },
   {
@@ -143,6 +171,7 @@ export const ukrainianBooks: CatalogBook[] = [
       { href: "https://github.com/markoblogo/index/releases/download/asset-binaries-v1/spot-market-handbook-ua.epub", format: "EPUB", label: "Завантажити EPUB" }
     ],
     project: { label: "Spike", href: "https://spike.1d3x.com/uk/about" },
+    distribution: "free",
     status: "available"
   }
 ];
