@@ -60,6 +60,7 @@ npm run build --workspace @book-landings/agro-library
 - Ukrainian Modernism was documented on Railway with Cloudflare DNS.
 - Toki Free Kit, Dao Toki, and Stoic Wisdom Series were documented on Vercel.
 - All four production domains deploy from this monorepo. The old repositories are rollback-only pending owner visual approval before deletion.
+- AMI books alias check: after each production deploy, run Vercel alias verification so stale aliases are blocked before merge. Use `scripts/verify-books-alias.sh` with `VERIFY_EXPECTED_DEPLOYMENT_ID` and the `VERCEL_TOKEN`/`VERCEL_SCOPE_ID` secrets (or call `.github/workflows/verify-books-alias.yml` with the deployment id).
 
 ## Documentation
 

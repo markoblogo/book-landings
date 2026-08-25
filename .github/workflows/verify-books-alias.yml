@@ -1,0 +1,36 @@
+name: Verify books.1d3x.com Alias
+
+on:
+  workflow_call:
+    inputs:
+      expected_deployment_id:
+        required: true
+        type: string
+        description: Deployment ID expected for books.1d3x.com
+      domain:
+        required: false
+        type: string
+        default: books.1d3x.com
+  workflow_dispatch:
+    inputs:
+      expected_deployment_id:
+        required: true
+        type: string
+      domain:
+        required: false
+        default: books.1d3x.com
+        type: string
+
+jobs:
+  verify-alias:
+    name: Verify production alias points to expected deployment
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@4
+      - name: Validate books.1d3x.com alias binding
+        env:
+          VERIFY_ALIAS_DOMAIN: ${{ inputs.domain }}
+          VERIFY_EXPECTED_DEPLOYMENT_ID: ${{ inputs.expected_deployment_id }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_SCOPE_ID: ${{ secrets.VERCEL_SCOPE_ID }}
+        run: bash scripts/verify-books-alias.sh

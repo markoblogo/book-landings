@@ -15,3 +15,12 @@
   - Production alias: [books.1d3x.com](https://books.1d3x.com)
 - Note:
   - README contract text in `apps/agro-library/README.md` updated to match the behavior.
+
+### Alias drift guard
+
+- Implemented:
+  - `scripts/verify-books-alias.sh`
+  - `.github/workflows/verify-books-alias.yml`
+- Contract:
+  - In future production deploys, compare alias target from Vercel CLI with `VERIFY_EXPECTED_DEPLOYMENT_ID`.
+  - Fail deployment check if `books.1d3x.com` points to another deployment.
