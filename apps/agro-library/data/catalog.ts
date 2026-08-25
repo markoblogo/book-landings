@@ -126,11 +126,14 @@ export const englishBooks: CatalogBook[] = [
     cover: "/covers/contract-execution-officer-handbook.jpeg",
     print: "/prints/contract-execution-officer-handbook.png",
     audience: "For execution officers, brokers, traders, logistics and operations teams, finance and compliance professionals, managers, and students working with physical agricultural commodity contracts.",
-    assets: [],
+    assets: [
+      { href: "https://mn7r.com/books/contract-execution-officer-handbook.pdf", format: "PDF", label: "Download PDF" },
+      { href: "https://mn7r.com/books/contract-execution-officer-handbook.epub", format: "EPUB", label: "Download EPUB" }
+    ],
     project: { label: "MN7R.com", href: "https://mn7r.com/how-to-use" },
     distribution: "free",
     note: "A living professional guide that will be updated with the contract-execution methodology and MN7R capabilities.",
-    status: "upcoming"
+    status: "available"
   }
 ];
 
