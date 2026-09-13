@@ -5,6 +5,9 @@ out
 playwright-report
 test-results
 .playwright-cli
+.lazyweb
+apps/*/AGENTS.md
+apps/*/CLAUDE.md
 .vercel
 .railway
 .env*

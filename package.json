@@ -1,6 +1,6 @@
 {
   "name": "book-landings",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "engines": {
     "node": ">=22.13.0"
@@ -11,14 +11,17 @@
   ],
   "scripts": {
     "build": "npm run build:packages && npm run build:apps",
+    "verify": "npm run lint && npm run typecheck && npm run check:assets && npm run build",
     "build:packages": "npm run build --workspace @book-landings/landing-core && npm run build --workspace @book-landings/landing-content && npm run build --workspace @book-landings/landing-seo && npm run build --workspace @book-landings/landing-sitelen && npm run build --workspace @book-landings/landing-ui",
     "build:apps": "npm run build --workspace @book-landings/ukrainian-modernism && npm run build --workspace @book-landings/toki-free-kit && npm run build --workspace @book-landings/dao-toki && npm run build --workspace @book-landings/stoic-wisdom-series && npm run build --workspace @book-landings/agro-library",
     "lint": "eslint . --max-warnings=0",
+    "test": "npm run test:parity",
     "test:parity": "npm run build:packages && playwright test",
     "test:parity:headed": "npm run build:packages && playwright test --headed",
     "typecheck": "npm run build:packages && npm run typecheck:apps",
     "typecheck:apps": "npm run typecheck --workspace @book-landings/ukrainian-modernism && npm run typecheck --workspace @book-landings/toki-free-kit && npm run typecheck --workspace @book-landings/dao-toki && npm run typecheck --workspace @book-landings/stoic-wisdom-series && npm run typecheck --workspace @book-landings/agro-library",
     "check:assets": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --experimental-strip-types scripts/check-assets.ts",
+    "verify:live": "node scripts/verify-live-sites.mjs",
     "dev:ukrainian-modernism": "npm run build:packages && npm run dev --workspace @book-landings/ukrainian-modernism",
     "dev:toki-free-kit": "npm run build:packages && npm run dev --workspace @book-landings/toki-free-kit",
     "dev:dao-toki": "npm run build:packages && npm run dev --workspace @book-landings/dao-toki",
@@ -30,21 +33,21 @@
     "start:stoic-wisdom-series": "npm run start --workspace @book-landings/stoic-wisdom-series"
   },
   "dependencies": {
-    "next": "16.2.10",
-    "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "next": "16.3.5",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
   },
   "overrides": {
-    "postcss": "8.5.10"
+    "postcss": "8.5.28"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.2",
-    "@playwright/test": "^1.57.0",
-    "@types/node": "^20.19.25",
-    "@types/react": "^19.2.7",
-    "@types/react-dom": "^19.2.3",
-    "eslint": "^9.39.2",
+    "@eslint/js": "^9.39.5",
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^20.19.43",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "^9.39.5",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.50.0"
+    "typescript-eslint": "^8.70.0"
   }
 }

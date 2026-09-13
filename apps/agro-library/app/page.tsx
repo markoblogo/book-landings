@@ -27,7 +27,7 @@ function AvailabilityBadge({ status, distribution = "free", hero = false }: { st
   const amazon = !upcoming && distribution === "amazon";
   return (
     <span className={`${styles.badge} ${upcoming ? styles.badgeUpcoming : ""} ${amazon ? styles.badgeAmazon : ""}`}>
-      <span>{upcoming ? "COMMING SOON" : amazon ? "AMAZON" : hero ? "ALL FREE" : "FREE"}</span>
+      <span>{upcoming ? "COMING SOON" : amazon ? "AMAZON" : hero ? "ALL FREE" : "FREE"}</span>
     </span>
   );
 }

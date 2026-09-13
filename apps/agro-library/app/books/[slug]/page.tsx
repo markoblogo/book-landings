@@ -45,7 +45,7 @@ export default async function BookPage({ params }: { params: Promise<{ slug: str
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <header className={styles.header}><a href="/">AMI books</a><a href="/#english-guides">Back to library</a></header>
       <article className={styles.hero}>
-        <div className={styles.cover}>{book.cover ? <img src={book.cover} alt={`Cover of ${book.title}`} /> : null}<span className={book.status === "upcoming" ? styles.coming : book.distribution === "amazon" ? styles.amazon : styles.free}>{book.status === "upcoming" ? "COMMING SOON" : book.distribution === "amazon" ? "AMAZON" : "ALL FREE"}</span></div>
+        <div className={styles.cover}>{book.cover ? <img src={book.cover} alt={`Cover of ${book.title}`} /> : null}<span className={book.status === "upcoming" ? styles.coming : book.distribution === "amazon" ? styles.amazon : styles.free}>{book.status === "upcoming" ? "COMING SOON" : book.distribution === "amazon" ? "AMAZON" : "ALL FREE"}</span></div>
         <div className={styles.copy}>
           <p>{book.group === "product-guides" ? "Product guide" : "Professional guide"}</p>
           <h1>{book.title}</h1>

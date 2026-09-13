@@ -1,8 +1,36 @@
 # Book Landings
 
-`book-landings` is a monorepo for content-driven editorial and book landing pages. Each site is a separate app so it can keep its own routes, visual identity, assets, legal pages, SEO host config, and deployment target.
+[![CI](https://github.com/markoblogo/book-landings/actions/workflows/ci.yml/badge.svg)](https://github.com/markoblogo/book-landings/actions/workflows/ci.yml)
+[![Live sites](https://github.com/markoblogo/book-landings/actions/workflows/live-sites.yml/badge.svg)](https://github.com/markoblogo/book-landings/actions/workflows/live-sites.yml)
+[![Release](https://img.shields.io/github/v/release/markoblogo/book-landings)](https://github.com/markoblogo/book-landings/releases)
+[![License: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
+
+Five independently deployed publishing sites, one tested Next.js monorepo.
+
+`book-landings` provides reusable content, SEO, locale, UI, and sitelen-layer packages while each site keeps its own routes, visual identity, assets, legal pages, domain, and deployment target. It is useful when several small editorial sites need shared engineering without becoming one generic template.
 
 The shared packages provide reusable constructor pieces without forcing one design system across every landing.
+
+## Quick Start
+
+Requirements: Node.js 22 and npm.
+
+```bash
+git clone https://github.com/markoblogo/book-landings.git
+cd book-landings
+npm ci
+npm run dev:agro-library
+```
+
+Open `http://localhost:3000`. Replace the final command with `dev:ukrainian-modernism`, `dev:toki-free-kit`, `dev:dao-toki`, or `dev:stoic-wisdom-series` to run another site.
+
+Before opening a pull request:
+
+```bash
+npm run verify
+npx playwright install chromium
+npm run test:parity
+```
 
 ## Apps
 
@@ -59,8 +87,13 @@ npm run build --workspace @book-landings/agro-library
 - Configure production domains per app from `src/site.config.ts`.
 - Ukrainian Modernism was documented on Railway with Cloudflare DNS.
 - Toki Free Kit, Dao Toki, and Stoic Wisdom Series were documented on Vercel.
-- All four production domains deploy from this monorepo. The old repositories are rollback-only pending owner visual approval before deletion.
+- All five production domains deploy from this monorepo. The previous standalone repositories remain rollback references where they still exist.
 - AMI books alias check: after each production deploy, run Vercel alias verification so stale aliases are blocked before merge. Use `scripts/verify-books-alias.sh` with `VERIFY_EXPECTED_DEPLOYMENT_ID` and the `VERCEL_TOKEN`/`VERCEL_SCOPE_ID` secrets (or call `.github/workflows/verify-books-alias.yml` with the deployment id).
+- `npm run verify:live` checks all five public roots, redirects, titles, canonicals, robots files, and sitemaps. GitHub Actions repeats this check every Monday.
+
+## Contributing and License
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the validation workflow and [SECURITY.md](SECURITY.md) for private vulnerability reporting. Source code is MIT licensed. Book files, cover art, illustrations, videos, and editorial content remain under their respective rights; see [LICENSE_SCOPE.md](LICENSE_SCOPE.md).
 
 ## Documentation
 
