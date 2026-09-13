@@ -9,7 +9,7 @@
 - What changed:
   - Kept the hero badge text as `ALL FREE`.
   - Switched book card/print badges from `ALL FREE` to `FREE` for available items.
-  - Preserved `COMMING SOON` for upcoming items.
+  - Corrected the legacy upcoming-item label to `COMING SOON`.
 - Deployment:
   - Vercel deployment: `dpl_Dwh31C3p1eoVMxechDti1ApVUWHg`
   - Production alias: [books.1d3x.com](https://books.1d3x.com)

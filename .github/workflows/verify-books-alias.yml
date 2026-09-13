@@ -26,7 +26,7 @@ jobs:
     name: Verify production alias points to expected deployment
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@4
+      - uses: actions/checkout@v7
       - name: Validate books.1d3x.com alias binding
         env:
           VERIFY_ALIAS_DOMAIN: ${{ inputs.domain }}
