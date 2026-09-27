@@ -1,5 +1,28 @@
+import type { Metadata } from 'next';
 import { getDictionary } from '@/get-dictionary';
 import Link from 'next/link';
+import { canonicalUrl, openGraphImage } from '@book-landings/landing-seo';
+import { ukrainianModernismSiteConfig } from '@/site.config';
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: 'fr' | 'uk' }> }): Promise<Metadata> {
+    const { lang } = await params;
+    const safeLang = lang === 'uk' ? 'uk' : 'fr';
+    const dict = await getDictionary(safeLang);
+    const url = canonicalUrl(ukrainianModernismSiteConfig, `/${safeLang}/legal`);
+    const image = openGraphImage(ukrainianModernismSiteConfig, `/og/og-${safeLang}.jpg`);
+    const description = safeLang === 'fr' ? 'Mentions légales du site Modernisme ukrainien.' : 'Юридична інформація сайту «Український модернізм».';
+    return {
+        title: `${dict.legal.title} | ${safeLang === 'fr' ? 'Modernisme ukrainien' : 'Український модернізм'}`,
+        description,
+        alternates: { canonical: url, languages: {
+            fr: canonicalUrl(ukrainianModernismSiteConfig, '/fr/legal'),
+            uk: canonicalUrl(ukrainianModernismSiteConfig, '/uk/legal'),
+            'x-default': canonicalUrl(ukrainianModernismSiteConfig, '/fr/legal'),
+        } },
+        openGraph: { title: dict.legal.title, description, url, type: 'website', ...(image ? { images: [{ url: image }] } : {}) },
+        twitter: { card: image ? 'summary_large_image' : 'summary', title: dict.legal.title, description, ...(image ? { images: [image] } : {}) },
+    };
+}
 
 export default async function LegalPage({ params }: { params: Promise<{ lang: 'fr' | 'uk' }> }) {
     let { lang } = await params;
@@ -16,7 +39,7 @@ export default async function LegalPage({ params }: { params: Promise<{ lang: 'f
     const backLink = `/${lang}`;
 
     return (
-        <main className="container" style={{ padding: '6rem 1.5rem 4rem', minHeight: '60vh', maxWidth: '800px', margin: '0 auto' }}>
+        <main lang={lang} className="container" style={{ padding: '6rem 1.5rem 4rem', minHeight: '60vh', maxWidth: '800px', margin: '0 auto' }}>
             <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: '2rem', marginBottom: '2rem' }}>
                 {dict.legal.title}
             </h1>

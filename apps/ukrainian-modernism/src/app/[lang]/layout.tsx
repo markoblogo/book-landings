@@ -21,6 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       languages: {
         fr: canonicalUrl(ukrainianModernismSiteConfig, '/fr'),
         uk: canonicalUrl(ukrainianModernismSiteConfig, '/uk'),
+        'x-default': canonicalUrl(ukrainianModernismSiteConfig, '/fr'),
       },
     },
     openGraph: {

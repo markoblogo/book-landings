@@ -25,6 +25,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       languages: {
         fr: canonicalUrl(ukrainianModernismSiteConfig, '/fr/gift'),
         uk: canonicalUrl(ukrainianModernismSiteConfig, '/uk/gift'),
+        'x-default': canonicalUrl(ukrainianModernismSiteConfig, '/fr/gift'),
       },
     },
     openGraph: {
@@ -59,7 +60,7 @@ export default async function GiftPage({ params }: { params: Promise<{ lang: str
   const gift = books.find((b) => b.id === 'kosynka-gift');
 
   return (
-    <main style={{ maxWidth: 980, margin: '0 auto', padding: '32px 20px' }}>
+    <main lang={safeLang} style={{ maxWidth: 980, margin: '0 auto', padding: '32px 20px' }}>
       {gift && (
         <Script
           id="jsonld-gift-book"

@@ -37,7 +37,7 @@ export default async function Page({ params }: { params: Promise<{ lang: string 
   }
 
   return (
-    <main className={styles.main}>
+    <main className={styles.main} lang={validLang}>
       <Script
         id="jsonld-series-and-books"
         type="application/ld+json"

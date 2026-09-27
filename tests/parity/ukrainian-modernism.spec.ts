@@ -62,3 +62,40 @@ test("localized legal, privacy, gift, and book routes render", async ({ page }) 
 
   await assertNoConsoleErrors(consoleErrors);
 });
+
+test("Chkouroupiy edition and paired editorial articles are linked, localized, and indexed", async ({ page }) => {
+  const id = "chkouroupiy-jeanne-miss-adrienne";
+  const consoleErrors = collectSevereConsoleErrors(page);
+
+  await openRoute(page, "/fr");
+  const hero = page.locator("main > section").first();
+  await expect(hero.getByRole("button", { name: /Jeanne la bataillonneuse/i })).toHaveCount(0);
+  await expect(page.getByRole("heading", { name: /Jeanne la bataillonneuse/i })).toBeVisible();
+  await expect(page.locator(`a[href="/fr/book/${id}"]`).first()).toBeVisible();
+
+  await openRoute(page, `/fr/book/${id}`);
+  await expectCanonicalPath(page, `/fr/book/${id}`);
+  await expect(page.locator(`a[href="/fr/article/${id}"]`)).toBeVisible();
+  const bookJsonLd = await page.locator('script[type="application/ld+json"]').last().textContent();
+  expect(bookJsonLd).toContain('"BreadcrumbList"');
+  await expectNoBrokenImages(page);
+
+  await openRoute(page, `/fr/article/${id}`);
+  await expectCanonicalPath(page, `/fr/article/${id}`);
+  await expect(page.getByRole("heading", { name: /Géo Chkouroupiy en français/i, level: 1 })).toBeVisible();
+  await expect(page.locator('link[rel="alternate"][hreflang="uk"]')).toHaveAttribute("href", new RegExp(`/uk/article/${id}$`));
+  const frenchArticleLd = page.locator(`#jsonld-article-${id}`);
+  const frenchArticleJsonLd = await frenchArticleLd.textContent();
+  expect(frenchArticleJsonLd).toContain('"Article"');
+  expect(frenchArticleJsonLd).toContain('"BreadcrumbList"');
+
+  await openRoute(page, `/uk/article/${id}`);
+  await expectCanonicalPath(page, `/uk/article/${id}`);
+  await expect(page.getByRole("heading", { name: /Гео Шкурупій французькою/i, level: 1 })).toBeVisible();
+  await expect(page.locator("main")).toHaveAttribute("lang", "uk");
+
+  const sitemap = await page.request.get(new URL("/sitemap.xml", page.url()).toString());
+  expect(await sitemap.text()).toContain(`/fr/article/${id}`);
+  expect(await sitemap.text()).toContain(`/uk/article/${id}`);
+  await assertNoConsoleErrors(consoleErrors);
+});

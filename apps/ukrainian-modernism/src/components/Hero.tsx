@@ -45,7 +45,7 @@ export default function Hero({ dict, lang }: { dict: any, lang: string }) {
 
                 <div className={styles.rightCol}>
                     <HeroCoverGrid
-                        books={books}
+                        books={books.filter((book) => book.showInHero !== false)}
                         onSelect={handleSelectBook}
                         selectedBookId={selectedBook?.id || null}
                         dict={dict}

@@ -65,12 +65,13 @@ function identifiersFromBook(book: Book) {
 }
 
 export function bookJsonLd(lang: 'fr' | 'uk', book: Book) {
+  const alternateAuthorName = book.id === 'chkouroupiy-jeanne-miss-adrienne' ? 'Geo Shkurupii' : undefined;
   const common: Record<string, any> = {
     '@context': 'https://schema.org',
     '@type': 'Book',
     '@id': `${SITE_URL}/${lang}#${book.id}`,
     name: book.title[lang],
-    author: { '@type': 'Person', name: book.author[lang] },
+    author: { '@type': 'Person', name: book.author[lang], ...(alternateAuthorName ? { alternateName: alternateAuthorName } : {}) },
     inLanguage: lang,
     translator: { '@type': 'Person', name: 'Anton Biletskiy-Volokh' },
     publisher: {
@@ -79,6 +80,10 @@ export function bookJsonLd(lang: 'fr' | 'uk', book: Book) {
       url: 'https://abvx.xyz',
     },
   };
+
+  common.url = `${SITE_URL}/${lang}/book/${book.id}`;
+  common.image = `${SITE_URL}${book.promoImage}`;
+  common.description = book.longDescription[lang];
 
   const identifier = identifiersFromBook(book);
   if (identifier) common.identifier = identifier;
@@ -106,14 +111,12 @@ export function bookJsonLd(lang: 'fr' | 'uk', book: Book) {
       ? {
           '@type': 'Offer',
           url: book.amazonKindleUrl,
-          availability: 'https://schema.org/InStock',
         }
       : null,
     book.amazonPrintUrl
       ? {
           '@type': 'Offer',
           url: book.amazonPrintUrl,
-          availability: 'https://schema.org/InStock',
         }
       : null,
   ].filter(Boolean);

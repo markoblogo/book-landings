@@ -3,7 +3,7 @@ import { canonicalUrl, localeAlternates } from '@book-landings/landing-seo';
 import { books } from '@/data/books';
 import { ukrainianModernismSiteConfig } from '@/site.config';
 
-const lastModified = new Date('2026-07-03');
+const lastModified = new Date('2026-09-27');
 const locales = ['fr', 'uk'] as const;
 
 function entry(path: string, priority: number, changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'], alternatesPath?: string): MetadataRoute.Sitemap[number] {
@@ -28,6 +28,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ]),
     ...locales.flatMap((locale) =>
       books.map((book) => entry(`/${locale}/book/${book.id}`, book.type === 'gift' ? 0.6 : 0.8, 'monthly', `/book/${book.id}`))
+    ),
+    ...locales.flatMap((locale) =>
+      books.map((book) => entry(`/${locale}/article/${book.id}`, 0.7, 'monthly', `/article/${book.id}`))
     ),
   ];
 }

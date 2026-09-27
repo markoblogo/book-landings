@@ -8,6 +8,7 @@ import Footer from '@/components/Footer';
 import { jsonLdForBook, SITE_URL } from '@/lib/jsonld';
 import { ukrainianModernismSiteConfig } from '@/site.config';
 import { canonicalUrl, openGraphImage } from '@book-landings/landing-seo';
+import { getSeoArticle } from '@/lib/seo-articles';
 
 export async function generateStaticParams() {
   return books.map((b) => ({ id: b.id }));
@@ -28,7 +29,7 @@ export async function generateMetadata({
   const title = book.title[safeLang];
 
   const url = canonicalUrl(ukrainianModernismSiteConfig, `/${safeLang}/book/${id}`);
-  const ogImage = openGraphImage(ukrainianModernismSiteConfig, `/og/books/${id}.${safeLang}.png`) ?? `${SITE_URL}/og/books/${id}.${safeLang}.png`;
+  const ogImage = openGraphImage(ukrainianModernismSiteConfig, `/og/books/${id}.${safeLang}.png`) ?? `${SITE_URL}${book.promoImage}`;
 
   const pageTitle =
     safeLang === 'fr'
@@ -56,6 +57,10 @@ export async function generateMetadata({
       fr: 'Nouvelle saisissante sur la tragédie paysanne ukrainienne, écrite avec une précision cruelle. Téléchargement gratuit PDF/EPUB + teaser vidéo.',
       uk: 'Сильна новела про трагедію українського села й зламаний час. Безкоштовно: PDF/EPUB + тизер-відео. Ідеально як перший текст для знайомства.',
     },
+    'chkouroupiy-jeanne-miss-adrienne': {
+      fr: 'Deux récits de Géo Chkouroupiy : la guerre et la révolution de 1917, puis la ville industrielle. Édition française avec préface, 40 notes et bibliographie.',
+      uk: 'Два твори Гео Шкурупія про війну, революцію 1917 року та індустріальне місто. Французьке видання з передмовою, 40 примітками й бібліографією.',
+    },
   };
 
   const description = metaDescriptions[id]?.[safeLang] ?? book.shortDescription[safeLang];
@@ -68,13 +73,14 @@ export async function generateMetadata({
       languages: {
         fr: canonicalUrl(ukrainianModernismSiteConfig, `/fr/book/${id}`),
         uk: canonicalUrl(ukrainianModernismSiteConfig, `/uk/book/${id}`),
+        'x-default': canonicalUrl(ukrainianModernismSiteConfig, `/fr/book/${id}`),
       },
     },
     openGraph: {
       title: pageTitle,
       description,
       url,
-      images: [{ url: ogImage, width: 1200, height: 630 }],
+      images: [{ url: ogImage }],
       type: 'book',
     },
     twitter: {
@@ -100,13 +106,29 @@ export default async function BookPage({
 
   const title = book.title[safeLang];
   const author = book.author[safeLang];
+  const article = getSeoArticle(id, safeLang);
+  const bookUrl = canonicalUrl(ukrainianModernismSiteConfig, `/${safeLang}/book/${id}`);
+  const homeLabel = safeLang === 'fr' ? 'Accueil' : 'Головна';
+  const graph = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      jsonLdForBook(safeLang, book),
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: homeLabel, item: canonicalUrl(ukrainianModernismSiteConfig, `/${safeLang}`) },
+          { '@type': 'ListItem', position: 2, name: title, item: bookUrl },
+        ],
+      },
+    ],
+  };
 
   return (
-    <main style={{ maxWidth: 980, margin: '0 auto', padding: '32px 20px' }}>
+    <main lang={safeLang} style={{ maxWidth: 980, margin: '0 auto', padding: '32px 20px' }}>
       <Script
         id={`jsonld-book-${book.id}`}
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdForBook(safeLang, book)) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
       />
 
       <Header lang={safeLang} />
@@ -115,6 +137,14 @@ export default async function BookPage({
       <p style={{ fontSize: 22, opacity: 0.8, marginTop: 10 }}>{author}</p>
 
       <p style={{ fontSize: 18, opacity: 0.9, marginTop: 24 }}>{book.longDescription[safeLang]}</p>
+
+      {article && (
+        <p style={{ marginTop: 20 }}>
+          <a href={`/${safeLang}/article/${book.id}`}>
+            {safeLang === 'fr' ? `Lire l’article : ${article.title}` : `Читати статтю: ${article.title}`}
+          </a>
+        </p>
+      )}
 
       <div style={{ display: 'flex', gap: 12, marginTop: 24, flexWrap: 'wrap' }}>
         {book.type === 'commercial' && book.amazonKindleUrl && (

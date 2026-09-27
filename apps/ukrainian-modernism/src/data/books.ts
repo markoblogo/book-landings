@@ -36,9 +36,52 @@ export interface Book {
     identifiers?: BookIdentifiers;
     kindle?: BookEditionDetails;
     print?: BookEditionDetails;
+    showInHero?: boolean;
 }
 
 export const books: Book[] = [
+    {
+        id: "chkouroupiy-jeanne-miss-adrienne",
+        type: 'commercial',
+        title: {
+            fr: "Jeanne la bataillonneuse : suivi de Miss Adrienne",
+            uk: "Жанна-батальйонерка: разом із «Міс Адрієнною»"
+        },
+        author: {
+            fr: "Géo Chkouroupiy",
+            uk: "Гео Шкурупій"
+        },
+        coverImage: "/assets/books/chkouroupiy-jeanne-miss-adrienne/promo.png",
+        promoImage: "/assets/books/chkouroupiy-jeanne-miss-adrienne/promo.png",
+        showInHero: false,
+        amazonKindleUrl: "https://www.amazon.fr/dp/B0HL4NC2CZ",
+        amazonPrintUrl: "https://www.amazon.fr/dp/B0HL658793",
+        identifiers: {
+            asinKindle: 'B0HL4NC2CZ',
+            asinPrint: 'B0HL658793',
+            isbn13Print: '979-8177094397',
+        },
+        kindle: {
+            publicationDate: '2026-09-26',
+            language: 'French',
+            fileSizeMb: 4.4,
+            printLengthPages: 302,
+        },
+        print: {
+            publicationDate: '2026-09-26',
+            language: 'French',
+            publisher: 'Independently published',
+            printLengthPages: 258,
+        },
+        shortDescription: {
+            fr: "Deux récits, deux secousses de l’Europe moderne : la guerre et la révolution, puis l’usine, le chômage et les mirages de la ville.",
+            uk: "Дві повісті, два струси модерної Європи: війна й революція, а потім фабрика, безробіття та міські омани."
+        },
+        longDescription: {
+            fr: "Dans Jeanne la bataillonneuse, Géo Chkouroupiy suit une jeune femme emportée par les images héroïques de 1917 : le bataillon féminin, le front, la patrie, la révolution. Le roman confronte ces grands récits à la peur, au désir, à la boue et aux contradictions de l’histoire. Avec Miss Adrienne, le regard se déplace vers la ville industrielle, l’usine, la grève, le port et la publicité. Les corps et les objets s’y transforment comme dans un montage de cinéma, entre satire sociale et vertige moderne. Figure majeure du futurisme et de l’avant-garde ukrainienne, Géo Chkouroupiy — également catalogué sous la forme Geo Shkurupii — appartient à la génération du « Renouveau fusillé ». Sa prose mêle vitesse, ironie, aventure et expérimentation sans se réduire au document historique. Cette édition française comprend une traduction française originale des deux œuvres de 1930 et 1934, une préface et une note sur les textes et la traduction, 40 notes, une bibliographie et trois illustrations. Un volume de la série Modernisme ukrainien.",
+            uk: "У «Жанні-батальйонерці» Гео Шкурупій розповідає про молоду жінку, захоплену героїчними образами 1917 року: жіночий батальйон, фронт, батьківщина, революція. Роман зіставляє ці великі наративи зі страхом, бажанням, багнюкою та суперечностями історії. У «Міс Адрієнні» погляд переноситься до індустріального міста, фабрики, страйку, порту й реклами. Тіла й предмети змінюються, наче в кінематографічному монтажі, між соціальною сатирою та запамороченням модерності. Визначний футурист і представник українського авангарду, Гео Шкурупій належить до покоління Розстріляного відродження. Його проза поєднує швидкість, іронію, пригоди й формальний експеримент. Французьке видання містить оригінальний переклад обох творів 1930 і 1934 років, передмову й примітку про тексти та переклад, 40 приміток, бібліографію та три ілюстрації. Книжка із серії «Український модернізм»."
+        }
+    },
     {
         id: "khvylovy-sanatorium",
         type: 'commercial',

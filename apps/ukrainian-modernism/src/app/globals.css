@@ -95,3 +95,25 @@ button {
   background: var(--color-accent-hover);
   border-color: var(--color-accent-hover);
 }
+/* Long-form localized editorial pages */
+.seo-article-content {
+    font-size: 1.08rem;
+    line-height: 1.78;
+    overflow-wrap: anywhere;
+}
+
+.seo-article-content p,
+.seo-article-content ul {
+    margin: 0 0 1.25rem;
+}
+
+.seo-article-content h2 {
+    margin: 2.5rem 0 0.85rem;
+    line-height: 1.25;
+}
+
+.seo-article-content h3,
+.seo-article-content h4 {
+    margin: 2rem 0 0.7rem;
+    line-height: 1.3;
+}
