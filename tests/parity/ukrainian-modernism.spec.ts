@@ -50,7 +50,7 @@ test("localized legal, privacy, gift, and book routes render", async ({ page }) 
   await expectLocalDownloadsReturnOk(page);
 
   await openRoute(page, "/fr/book/kosynka-gift");
-  await expect(page.getByRole("heading", { name: /Dans les seigles/i })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Dans les seigles", exact: true })).toBeVisible();
   await expectCanonicalPath(page, "/fr/book/kosynka-gift");
   await expectNoBrokenImages(page);
   await expectNoSitelenControls(page);
@@ -95,7 +95,7 @@ test("localized book cards link to complete articles below the book details", as
       await expectCanonicalPath(page, `/${locale}/book/${bookId}`);
       const article = page.locator("#seo-article");
       await expect(article).toBeVisible();
-      await expect(article.locator("h2")).not.toBeEmpty();
+      await expect(article.locator("h2").first()).not.toBeEmpty();
       await expect(article.locator("p, ul").first()).toBeVisible();
       await expect(article).toHaveAttribute("lang", locale);
     }
