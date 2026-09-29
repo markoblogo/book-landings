@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 import { jsonLdForBook, SITE_URL } from '@/lib/jsonld';
 import { ukrainianModernismSiteConfig } from '@/site.config';
 import { canonicalUrl, openGraphImage } from '@book-landings/landing-seo';
-import { getSeoArticle } from '@/lib/seo-articles';
+import { getSeoArticle, renderArticleMarkdown } from '@/lib/seo-articles';
 
 export async function generateStaticParams() {
   return books.map((b) => ({ id: b.id }));
@@ -138,14 +138,6 @@ export default async function BookPage({
 
       <p style={{ fontSize: 18, opacity: 0.9, marginTop: 24 }}>{book.longDescription[safeLang]}</p>
 
-      {article && (
-        <p style={{ marginTop: 20 }}>
-          <a href={`/${safeLang}/article/${book.id}`}>
-            {safeLang === 'fr' ? `Lire l’article : ${article.title}` : `Читати статтю: ${article.title}`}
-          </a>
-        </p>
-      )}
-
       <div style={{ display: 'flex', gap: 12, marginTop: 24, flexWrap: 'wrap' }}>
         {book.type === 'commercial' && book.amazonKindleUrl && (
           <a
@@ -210,6 +202,18 @@ export default async function BookPage({
           </a>
         )}
       </div>
+
+      {article && (
+        <section id="seo-article" lang={safeLang} aria-labelledby="seo-article-title" style={{ marginTop: 56, paddingTop: 32, borderTop: '1px solid rgba(0,0,0,0.16)' }}>
+          <h2 id="seo-article-title" style={{ fontSize: 30, lineHeight: 1.2 }}>{article.title}</h2>
+          <div>{renderArticleMarkdown(article.content)}</div>
+          <p style={{ marginTop: 24 }}>
+            <a href={`/${safeLang}/article/${book.id}`}>
+              {safeLang === 'fr' ? 'Ouvrir la page de l’article' : 'Відкрити окрему сторінку статті'}
+            </a>
+          </p>
+        </section>
+      )}
 
       <div style={{ marginTop: 48 }}>
         <Footer dict={dict} lang={safeLang} />

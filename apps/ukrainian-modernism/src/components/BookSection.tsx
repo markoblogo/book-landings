@@ -5,19 +5,19 @@ import Image from 'next/image';
 import { Book } from '@/data/books';
 import styles from './BookSection.module.css';
 import GiftBadge from './GiftBadge';
+import { getSeoArticle } from '@/lib/seo-articles';
 
 interface BookSectionProps {
     book: Book;
     dict: any;
+    lang: 'fr' | 'uk';
     isLast: boolean;
 }
 
-export default function BookSection({ book, dict, isLast }: BookSectionProps) {
+export default function BookSection({ book, dict, lang, isLast }: BookSectionProps) {
     const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
     // Select correct localized strings from Dictionary first, fall back to book data
-    const lang = dict.lang || 'fr';
-
     // Look up localized content by book ID in the dictionary
     const localizedBook = dict.collection[book.id];
 
@@ -27,6 +27,7 @@ export default function BookSection({ book, dict, isLast }: BookSectionProps) {
     const longDesc = localizedBook?.longDesc || book.longDescription[lang as keyof typeof book.longDescription] || book.longDescription.fr;
 
     const isGift = book.type === 'gift';
+    const article = getSeoArticle(book.id, lang as 'fr' | 'uk');
 
     return (
         <section id={book.id} className={`${styles.section} ${isLast ? styles.lastSection : ''}`}>
@@ -101,6 +102,11 @@ export default function BookSection({ book, dict, isLast }: BookSectionProps) {
                                 className={styles.teaserLink}
                             >
                                 ▶ {dict.hero.watch_teaser}
+                            </a>
+                        )}
+                        {article && (
+                            <a href={`/${lang}/book/${book.id}#seo-article`} className={styles.teaserLink}>
+                                {lang === 'fr' ? 'Lire la suite' : 'Читати далі'}
                             </a>
                         )}
                     </div>

@@ -3,7 +3,7 @@
 import BookSection from './BookSection';
 import { books } from '@/data/books';
 
-export default function BookList({ dict }: { dict: any }) {
+export default function BookList({ dict, lang }: { dict: any; lang: 'fr' | 'uk' }) {
     // Sort logic: commercial first, then gift
     const sortedBooks = [...books].sort((a, b) => {
         if (a.type === 'gift') return 1;
@@ -18,6 +18,7 @@ export default function BookList({ dict }: { dict: any }) {
                     key={book.id}
                     book={book}
                     dict={dict}
+                    lang={lang}
                     isLast={index === sortedBooks.length - 1}
                 />
             ))}

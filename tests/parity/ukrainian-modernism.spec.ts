@@ -63,8 +63,16 @@ test("localized legal, privacy, gift, and book routes render", async ({ page }) 
   await assertNoConsoleErrors(consoleErrors);
 });
 
-test("Chkouroupiy edition and paired editorial articles are linked, localized, and indexed", async ({ page }) => {
+test("localized book cards link to complete articles below the book details", async ({ page }) => {
   const id = "chkouroupiy-jeanne-miss-adrienne";
+  const articleBookIds = [
+    id,
+    "kosynka-gift",
+    "ianovski-maitre-du-navire",
+    "johansen-leonardo",
+    "khvylovy-sanatorium",
+    "pidmohylny-la-ville",
+  ];
   const consoleErrors = collectSevereConsoleErrors(page);
 
   await openRoute(page, "/fr");
@@ -72,10 +80,30 @@ test("Chkouroupiy edition and paired editorial articles are linked, localized, a
   await expect(hero.getByRole("button", { name: /Jeanne la bataillonneuse/i })).toHaveCount(0);
   await expect(page.getByRole("heading", { name: /Jeanne la bataillonneuse/i })).toBeVisible();
   await expect(page.locator(`a[href="/fr/book/${id}"]`).first()).toBeVisible();
+  for (const bookId of articleBookIds) {
+    await expect(page.locator(`a[href="/fr/book/${bookId}#seo-article"]`)).toHaveText("Lire la suite");
+  }
+
+  await openRoute(page, "/uk");
+  for (const bookId of articleBookIds) {
+    await expect(page.locator(`a[href="/uk/book/${bookId}#seo-article"]`)).toHaveText("Читати далі");
+  }
+
+  for (const locale of ["fr", "uk"] as const) {
+    for (const bookId of articleBookIds) {
+      await openRoute(page, `/${locale}/book/${bookId}`);
+      await expectCanonicalPath(page, `/${locale}/book/${bookId}`);
+      const article = page.locator("#seo-article");
+      await expect(article).toBeVisible();
+      await expect(article.locator("h2")).not.toBeEmpty();
+      await expect(article.locator("p, ul").first()).toBeVisible();
+      await expect(article).toHaveAttribute("lang", locale);
+    }
+  }
 
   await openRoute(page, `/fr/book/${id}`);
   await expectCanonicalPath(page, `/fr/book/${id}`);
-  await expect(page.locator(`a[href="/fr/article/${id}"]`)).toBeVisible();
+  await expect(page.locator(`#seo-article a[href="/fr/article/${id}"]`)).toBeVisible();
   const bookJsonLd = await page.locator('script[type="application/ld+json"]').last().textContent();
   expect(bookJsonLd).toContain('"BreadcrumbList"');
   await expectNoBrokenImages(page);

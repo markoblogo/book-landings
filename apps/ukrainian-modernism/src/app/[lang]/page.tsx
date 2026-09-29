@@ -47,7 +47,7 @@ export default async function Page({ params }: { params: Promise<{ lang: string 
       <Header lang={validLang} />
       <Hero dict={dict} lang={validLang} />
       <WhySection dict={dict} />
-      <BookList dict={dict} />
+      <BookList dict={dict} lang={validLang} />
       <FAQ dict={dict} />
       <Footer dict={dict} lang={validLang} />
     </main>
