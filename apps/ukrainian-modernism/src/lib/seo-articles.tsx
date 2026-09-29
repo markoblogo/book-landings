@@ -25,6 +25,15 @@ function inlineMarkdown(value: string): ReactNode[] {
 
 export function renderArticleMarkdown(content: string): ReactNode[] {
   const blocks = content.trim().split(/\n\s*\n/);
+  const editorialNotesIndex = blocks.findIndex((block) =>
+    /^(?:Pour (?:le SEO de la page|la page française)|Pour la page française|Для української (?:сторінки|версії сторінки)|Meta description\s*:|Et comme meta description\b)/iu.test(block.trim())
+  );
+  if (editorialNotesIndex >= 0) {
+    const previousBlock = blocks[editorialNotesIndex - 1]?.trim() ?? '';
+    const isBookMetadataFooter = /^\*\*[^*]+\*\*/u.test(previousBlock)
+      && /(?:Série|Collection|Серія)\s+\*?Modernisme ukrainien\*?/iu.test(previousBlock);
+    blocks.splice(isBookMetadataFooter ? editorialNotesIndex - 1 : editorialNotesIndex);
+  }
   const firstHeading = blocks.findIndex((block) => /^#\s/.test(block.trim()));
   if (firstHeading >= 0) blocks.splice(firstHeading, 1);
 

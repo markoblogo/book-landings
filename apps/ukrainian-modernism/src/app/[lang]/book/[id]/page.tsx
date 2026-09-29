@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Script from 'next/script';
 import { notFound } from 'next/navigation';
 import { books } from '@/data/books';
@@ -205,8 +206,17 @@ export default async function BookPage({
 
       {article && (
         <section id="seo-article" lang={safeLang} aria-labelledby="seo-article-title" style={{ marginTop: 56, paddingTop: 32, borderTop: '1px solid rgba(0,0,0,0.16)' }}>
+          <figure className="seo-article-promo">
+            <Image
+              src={book.promoImage}
+              alt={safeLang === 'fr' ? `Affiche promotionnelle de ${title}, par ${author}` : `Промоілюстрація книжки «${title}», автор — ${author}`}
+              width={1536}
+              height={1024}
+              sizes="(max-width: 768px) 100vw, 940px"
+            />
+          </figure>
           <h2 id="seo-article-title" style={{ fontSize: 30, lineHeight: 1.2 }}>{article.title}</h2>
-          <div>{renderArticleMarkdown(article.content)}</div>
+          <div className="seo-article-content">{renderArticleMarkdown(article.content)}</div>
           <p style={{ marginTop: 24 }}>
             <a href={`/${safeLang}/article/${book.id}`}>
               {safeLang === 'fr' ? 'Ouvrir la page de l’article' : 'Відкрити окрему сторінку статті'}

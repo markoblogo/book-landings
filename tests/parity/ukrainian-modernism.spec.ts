@@ -95,9 +95,16 @@ test("localized book cards link to complete articles below the book details", as
       await expectCanonicalPath(page, `/${locale}/book/${bookId}`);
       const article = page.locator("#seo-article");
       await expect(article).toBeVisible();
+      await expect(article.locator(".seo-article-promo img")).toHaveCount(1);
       await expect(article.locator("h2").first()).not.toBeEmpty();
       await expect(article.locator("p, ul").first()).toBeVisible();
       await expect(article).toHaveAttribute("lang", locale);
+      const articleText = await article.innerText();
+      expect(articleText).not.toMatch(/SEO title|Meta description|Pour la page française|Для української (?:версії сторінки|сторінки) я б використав/i);
+      const paragraphMargin = await article.locator(".seo-article-content p").first().evaluate((element) =>
+        Number.parseFloat(getComputedStyle(element).marginBottom)
+      );
+      expect(paragraphMargin).toBeGreaterThan(0);
     }
   }
 
@@ -111,16 +118,21 @@ test("localized book cards link to complete articles below the book details", as
   await openRoute(page, `/fr/article/${id}`);
   await expectCanonicalPath(page, `/fr/article/${id}`);
   await expect(page.getByRole("heading", { name: /Géo Chkouroupiy en français/i, level: 1 })).toBeVisible();
+  await expect(page.locator(".seo-article-promo img")).toHaveCount(1);
+  await expect(page.locator(".seo-article-content")).not.toContainText(/SEO title|Meta description|Pour le SEO de la page/i);
   await expect(page.locator('link[rel="alternate"][hreflang="uk"]')).toHaveAttribute("href", new RegExp(`/uk/article/${id}$`));
   const frenchArticleLd = page.locator(`#jsonld-article-${id}`);
   const frenchArticleJsonLd = await frenchArticleLd.textContent();
   expect(frenchArticleJsonLd).toContain('"Article"');
+  expect(frenchArticleJsonLd).toContain('"image"');
   expect(frenchArticleJsonLd).toContain('"BreadcrumbList"');
 
   await openRoute(page, `/uk/article/${id}`);
   await expectCanonicalPath(page, `/uk/article/${id}`);
   await expect(page.getByRole("heading", { name: /Гео Шкурупій французькою/i, level: 1 })).toBeVisible();
   await expect(page.locator("main")).toHaveAttribute("lang", "uk");
+  await expect(page.locator(".seo-article-promo img")).toHaveCount(1);
+  await expect(page.locator(".seo-article-content")).not.toContainText(/SEO title|Meta description|Для української версії сторінки я б використав/i);
 
   const sitemap = await page.request.get(new URL("/sitemap.xml", page.url()).toString());
   expect(await sitemap.text()).toContain(`/fr/article/${id}`);

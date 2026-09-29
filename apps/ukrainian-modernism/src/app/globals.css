@@ -96,6 +96,19 @@ button {
   border-color: var(--color-accent-hover);
 }
 /* Long-form localized editorial pages */
+.seo-article-promo {
+    margin: 0 0 2rem;
+    overflow: hidden;
+    border-radius: 6px;
+    background: var(--color-paper-dark);
+}
+
+.seo-article-promo img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
 .seo-article-content {
     font-size: 1.08rem;
     line-height: 1.78;
@@ -104,16 +117,47 @@ button {
 
 .seo-article-content p,
 .seo-article-content ul {
-    margin: 0 0 1.25rem;
+    margin: 0 0 1.35rem;
 }
 
 .seo-article-content h2 {
-    margin: 2.5rem 0 0.85rem;
+    margin: 2.7rem 0 0.9rem;
     line-height: 1.25;
 }
 
 .seo-article-content h3,
 .seo-article-content h4 {
-    margin: 2rem 0 0.7rem;
+    margin: 2.2rem 0 0.75rem;
     line-height: 1.3;
+}
+
+.seo-article-content > :first-child {
+    margin-top: 0;
+}
+
+.seo-article-content li + li {
+    margin-top: 0.4rem;
+}
+
+.seo-article-content hr {
+    margin: 2rem 0;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.16);
+}
+
+@media (max-width: 640px) {
+    .seo-article-promo {
+        margin-bottom: 1.5rem;
+        border-radius: 4px;
+    }
+
+    .seo-article-content {
+        font-size: 1rem;
+        line-height: 1.72;
+    }
+
+    .seo-article-content h2 {
+        margin-top: 2.2rem;
+        font-size: 1.5rem;
+    }
 }

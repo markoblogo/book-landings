@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Script from 'next/script';
 import { notFound } from 'next/navigation';
 import Header from '@/components/Header';
@@ -66,6 +67,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ lang: 
         '@id': `${url}#article`,
         headline: title,
         description,
+        image: `${ukrainianModernismSiteConfig.baseUrl}${book.promoImage}`,
         inLanguage: locale,
         mainEntityOfPage: url,
         about: { '@type': 'Book', name: book.title[locale], url: `${ukrainianModernismSiteConfig.baseUrl}/${locale}/book/${id}` },
@@ -97,6 +99,15 @@ export default async function ArticlePage({ params }: { params: Promise<{ lang: 
           <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', lineHeight: 1.12 }}>{title}</h1>
           <p>{locale === 'fr' ? `À propos de ${book.title.fr}, par ${book.author.fr}` : `Про книжку «${book.title.uk}», автор: ${book.author.uk}`}</p>
         </header>
+        <figure className="seo-article-promo">
+          <Image
+            src={book.promoImage}
+            alt={locale === 'fr' ? `Affiche promotionnelle de ${book.title.fr}, par ${book.author.fr}` : `Промоілюстрація книжки «${book.title.uk}», автор — ${book.author.uk}`}
+            width={1536}
+            height={1024}
+            sizes="(max-width: 768px) 100vw, 820px"
+          />
+        </figure>
         <div className="seo-article-content">{renderArticleMarkdown(article.content)}</div>
       </article>
       <aside aria-labelledby="related-book-title" style={{ marginTop: 40, padding: 24, border: '1px solid #ddd', borderRadius: 12 }}>
