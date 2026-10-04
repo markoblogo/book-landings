@@ -139,3 +139,22 @@ test("localized book cards link to complete articles below the book details", as
   expect(await sitemap.text()).toContain(`/uk/article/${id}`);
   await assertNoConsoleErrors(consoleErrors);
 });
+
+
+test("document language matches locale in server HTML and language navigation", async ({ page, request }) => {
+  for (const lang of ["fr", "uk"]) {
+    for (const route of [`/${lang}`, `/${lang}/book/chkouroupiy-jeanne-miss-adrienne`]) {
+      const response = await request.get(route);
+      expect(response.status()).toBe(200);
+      expect(await response.text()).toMatch(new RegExp(`<html[^>]*lang="${lang}"`));
+      await page.goto(route);
+      await expect(page.locator("html")).toHaveAttribute("lang", lang);
+    }
+  }
+  await page.goto("/fr");
+  await page.locator('[data-locale-switcher] a[href="/uk"]').click();
+  await expect(page).toHaveURL(/\/uk$/);
+  await expect(page.locator("html")).toHaveAttribute("lang", "uk");
+  await page.locator('[data-locale-switcher] a[href="/fr"]').click();
+  await expect(page.locator("html")).toHaveAttribute("lang", "fr");
+});

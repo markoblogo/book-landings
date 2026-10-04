@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import { inter, playfair } from '@/fonts';
+import '../globals.css';
 import Script from 'next/script';
 import { getDictionary } from '@/get-dictionary';
 import { orgJsonLd, websiteJsonLd } from '@/lib/jsonld';
@@ -14,6 +16,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const twitterImage = openGraphImage(ukrainianModernismSiteConfig, '/og/og-x.jpg') ?? canonicalUrl(ukrainianModernismSiteConfig, '/og/og-x.jpg');
 
   return {
+    metadataBase: new URL(ukrainianModernismSiteConfig.baseUrl),
+    applicationName: 'Ukrainian Modernism',
     title: dict.meta.title,
     description: dict.meta.description,
     alternates: {
@@ -67,7 +71,8 @@ export default async function LangLayout({
   const safeLang = (lang === 'uk' || lang === 'fr') ? lang : 'fr';
 
   return (
-    <>
+    <html lang={safeLang} className={`${inter.variable} ${playfair.variable}`}>
+      <body>
       <Script
         id="jsonld-org"
         type="application/ld+json"
@@ -79,6 +84,7 @@ export default async function LangLayout({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd(safeLang)) }}
       />
       {children}
-    </>
+      </body>
+    </html>
   );
 }
