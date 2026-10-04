@@ -16,6 +16,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const twitterImage = openGraphImage(ukrainianModernismSiteConfig, '/og/og-x.jpg') ?? canonicalUrl(ukrainianModernismSiteConfig, '/og/og-x.jpg');
 
   return {
+    metadataBase: new URL(ukrainianModernismSiteConfig.baseUrl),
+    applicationName: 'Ukrainian Modernism',
     title: dict.meta.title,
     description: dict.meta.description,
     alternates: {
