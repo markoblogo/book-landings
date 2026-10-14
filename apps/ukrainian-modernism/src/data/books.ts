@@ -56,6 +56,7 @@ export const books: Book[] = [
         showInHero: false,
         amazonKindleUrl: "https://www.amazon.fr/dp/B0HL4NC2CZ",
         amazonPrintUrl: "https://www.amazon.fr/dp/B0HL658793",
+        teaserVideoId: "PmhWa-V00zc",
         identifiers: {
             asinKindle: 'B0HL4NC2CZ',
             asinPrint: 'B0HL658793',
