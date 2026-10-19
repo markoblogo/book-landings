@@ -68,6 +68,13 @@ function BookFeature({ book, reverse }: { book: CatalogBook; reverse: boolean })
             ))}
           </div>
         ) : <p className={styles.releaseNote}>Publication files will be available at release.</p>}
+        {book.teaserVideoId ? (
+          <div className={styles.teaserLinkWrapper}>
+            <a className={styles.teaserLink} href={`https://www.youtube.com/watch?v=${book.teaserVideoId}`} target="_blank" rel="noopener noreferrer" aria-label={`${book.contentLanguage === "uk" ? "Дивитися відео" : "Watch video"}: ${book.title}`}>
+              <span aria-hidden="true">▶</span> {book.contentLanguage === "uk" ? "Дивитися відео" : "Watch video"}
+            </a>
+          </div>
+        ) : null}
         <a className={styles.related} href={book.project.href} target="_blank" rel="noopener noreferrer">
           Related project: {book.project.label}
         </a>
@@ -98,6 +105,11 @@ export default function Page() {
   return (
     <main className={styles.page}>
       <section className={styles.hero} id="top">
+        <div className={`${styles.container} ${styles.heroBrandRow}`}>
+          <a className={styles.heroBrand} href="#top" aria-label="AMI Books home">
+            <img src="/brand/ami-books.png" alt="AMI Books" width={110} height={129} />
+          </a>
+        </div>
         <div className={`${styles.container} ${styles.heroInner}`}>
           <div className={styles.heroCopy}>
             <AvailabilityBadge status="available" distribution="free" hero />
@@ -142,10 +154,24 @@ export default function Page() {
 
       <footer className={styles.footer}>
         <div className={`${styles.container} ${styles.footerGrid}`}>
-          <div><p className={styles.footerBrand}>AMI books</p><p>Professional publishing for physical commodity markets.</p></div>
+          <div className={styles.publisherBlock}>
+            <a className={styles.publisherBrand} href="https://ami.1d3x.com/" target="_blank" rel="noopener noreferrer">
+              <img src="/brand/ami-mark.png" alt="AMI" width={64} height={64} loading="lazy" />
+            </a>
+            <p>Professional publishing for physical commodity markets.</p>
+          </div>
           <nav aria-label="AMI team projects"><p>AMI team projects</p>{ecosystemLinks.map((link) => <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer">{link.label}</a>)}</nav>
-          <div><p>Contact</p><a href={`mailto:${contactEmail}`}>{contactEmail}</a><span>Published by {publisher}</span><span>Developed by <a href={developer.href} target="_blank" rel="noopener noreferrer">{developer.label}</a></span></div>
-          <div><p>Information</p><a href="/legal">Legal</a><a href="/privacy">Privacy</a></div>
+          <div><p>Contact</p><a href={`mailto:${contactEmail}`}>{contactEmail}</a><span>Published by {publisher}</span></div>
+          <div>
+            <p>Information</p><a href="/legal">Legal</a><a href="/privacy">Privacy</a>
+          </div>
+          <a className={styles.creatorBrand} href={developer.href} target="_blank" rel="noopener noreferrer" aria-label="Created by ABVX">
+            <picture>
+              <source srcSet="/brand/abvx-mark.avif" type="image/avif" />
+              <img src="/brand/abvx-mark.jpeg" alt="" width={44} height={44} loading="lazy" />
+            </picture>
+            <span>Created by ABVX</span>
+          </a>
         </div>
       </footer>
     </main>
