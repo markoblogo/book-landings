@@ -168,7 +168,7 @@ export default function Page() {
           <a className={styles.creatorBrand} href={developer.href} target="_blank" rel="noopener noreferrer" aria-label="Created by ABVX">
             <picture>
               <source srcSet="/brand/abvx-mark.avif" type="image/avif" />
-              <img src="/brand/abvx-mark.jpeg" alt="" width={44} height={44} loading="lazy" />
+              <img src="/brand/abvx-mark.png" alt="" width={44} height={44} loading="lazy" />
             </picture>
             <span>Created by ABVX</span>
           </a>
