@@ -26,6 +26,7 @@ export interface CatalogBook {
     label: string;
     href: string;
   };
+  teaserVideoId?: string;
   distribution?: DistributionKind;
   note?: string;
   status: "available" | "upcoming";
@@ -35,6 +36,7 @@ export const englishBooks: CatalogBook[] = [
   {
     id: "mn7r-product-guide",
     slug: "mn7r-product-guide",
+    teaserVideoId: "TISOtCghMVY",
     section: "english",
     group: "product-guides",
     contentLanguage: "en",
@@ -55,6 +57,7 @@ export const englishBooks: CatalogBook[] = [
   {
     id: "agro-commodity-brokerage-en",
     slug: "agro-commodity-brokerage-en",
+    teaserVideoId: "H6l1leVo34A",
     section: "english",
     group: "professional-guides",
     contentLanguage: "en",
@@ -76,6 +79,7 @@ export const englishBooks: CatalogBook[] = [
   {
     id: "spot-market-handbook-en",
     slug: "spot-market-handbook-en",
+    teaserVideoId: "7hkMaEjINZA",
     section: "english",
     group: "professional-guides",
     contentLanguage: "en",
@@ -96,6 +100,7 @@ export const englishBooks: CatalogBook[] = [
   {
     id: "burgers-lipstick-underwear",
     slug: "burgers-lipstick-underwear",
+    teaserVideoId: "GVrbTMZxbpg",
     section: "english",
     group: "professional-guides",
     contentLanguage: "en",
@@ -117,6 +122,7 @@ export const englishBooks: CatalogBook[] = [
   {
     id: "contract-execution-officer-handbook",
     slug: "contract-execution-officer-handbook",
+    teaserVideoId: "k7DYPrNV7ZY",
     section: "english",
     group: "professional-guides",
     contentLanguage: "en",
@@ -142,6 +148,7 @@ export const ukrainianBooks: CatalogBook[] = [
   {
     id: "agro-commodity-brokerage-uk",
     slug: "agro-commodity-brokerage-uk",
+    teaserVideoId: "qer7WfdIWLI",
     section: "ukrainian",
     group: "professional-guides",
     contentLanguage: "uk",
@@ -161,6 +168,7 @@ export const ukrainianBooks: CatalogBook[] = [
   {
     id: "spot-market-handbook-uk",
     slug: "spot-market-handbook-uk",
+    teaserVideoId: "Kx1ftrOWQm8",
     section: "ukrainian",
     group: "professional-guides",
     contentLanguage: "uk",
