@@ -154,7 +154,7 @@ export default function Page() {
 
       <footer className={styles.footer}>
         <div className={`${styles.container} ${styles.footerGrid}`}>
-          <div>
+          <div className={styles.publisherBlock}>
             <a className={styles.publisherBrand} href="https://ami.1d3x.com/" target="_blank" rel="noopener noreferrer">
               <img src="/brand/ami-mark.png" alt="AMI" width={64} height={64} loading="lazy" />
             </a>
@@ -164,14 +164,14 @@ export default function Page() {
           <div><p>Contact</p><a href={`mailto:${contactEmail}`}>{contactEmail}</a><span>Published by {publisher}</span></div>
           <div>
             <p>Information</p><a href="/legal">Legal</a><a href="/privacy">Privacy</a>
-            <a className={styles.creatorBrand} href={developer.href} target="_blank" rel="noopener noreferrer" aria-label="Created by ABVX">
-              <span>Created by ABVX</span>
-              <picture>
-                <source srcSet="/brand/abvx-mark.avif" type="image/avif" />
-                <img src="/brand/abvx-mark.jpeg" alt="" width={44} height={44} loading="lazy" />
-              </picture>
-            </a>
           </div>
+          <a className={styles.creatorBrand} href={developer.href} target="_blank" rel="noopener noreferrer" aria-label="Created by ABVX">
+            <picture>
+              <source srcSet="/brand/abvx-mark.avif" type="image/avif" />
+              <img src="/brand/abvx-mark.jpeg" alt="" width={44} height={44} loading="lazy" />
+            </picture>
+            <span>Created by ABVX</span>
+          </a>
         </div>
       </footer>
     </main>
